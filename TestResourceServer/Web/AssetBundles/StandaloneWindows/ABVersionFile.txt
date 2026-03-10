@@ -1,0 +1,5 @@
+AssetBundles/StandaloneWindows/common.ab aa4312a6a4f221f365d6415037e94a3c 179
+AssetBundles/StandaloneWindows/lua.ab c1893436386d81be0187c7cbfe1b2f83 2
+AssetBundles/StandaloneWindows/mode.ab 9eeb8d9988c2996033c7ea19db90b665 3
+AssetBundles/StandaloneWindows/StandaloneWindows 917f7311216cf53bcf4467a90cea2d21 2
+
