@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 4030172713
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2bc2f6eb4a0671331efb46ff5e9dd9bf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a0e5d512d53c80c8fe7582c1b6ea86c0
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2bc2f6eb4a0671331efb46ff5e9dd9bf
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/Animations/Movement/BasicMotions@Jump01.fbx
+- Assets/AssetBundle/Model/Animations/Movement/BasicMotions@Fall01.fbx
+- Assets/AssetBundle/Model/Animations/Movement/BasicMotions@Walk01.fbx
+Dependencies: []

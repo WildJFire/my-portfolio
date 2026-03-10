@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2390578325
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 074f9c1f33563d66bece3fcec83417e5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 147058da82bee871bbce28e472030442
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 074f9c1f33563d66bece3fcec83417e5
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/Animators/Orc.controller
+Dependencies:
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animations/orc.ab

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using CommonUtility;
+using HotUpdate;
 
 namespace AssetBundleFramework
 {
@@ -58,7 +59,7 @@ namespace AssetBundleFramework
         /// <summary>
         /// 构建版本文件
         /// </summary>
-        private static readonly Profiler _buildVersionFileProfiler = _buildProfiler.CreateChild(nameof(LoadSetting));
+        private static readonly Profiler _buildVersionFileProfiler = _buildProfiler.CreateChild(nameof(BuildVersionFile));
 
         /// <summary>
         /// 加载构建设置分析器
@@ -307,7 +308,7 @@ namespace AssetBundleFramework
 
             (buildSetting as ISupportInitialize)?.EndInit();
 
-            BuildPath = Path.GetFullPath(buildSetting.buildRoot).Replace("\\", "/");
+            BuildPath = Path.GetFullPath(buildSetting.BuildRoot).Replace("\\", "/");
             if (BuildPath.Length > 0 && BuildPath[^1] != '/')
             {
                 BuildPath += '/';
@@ -382,8 +383,16 @@ namespace AssetBundleFramework
             FileInfo[] files = folder.GetFiles("*" , SearchOption.AllDirectories);
             foreach (var file in files)
             {
-                
+                string path = file.FullName;
+                string abName = path.Substring(path.IndexOf("AssetBundle"));
+                string suffix = path.Substring(path.LastIndexOf('.') + 1);
+                string md5 = MD5Manager.Instance.GetABPackEncryptVersion(path);
+                string size = Mathf.Ceil(file.Length / 1024.0f).ToString();
+                sb.AppendLine(ABUtil.GetABPackVersionStr(abName, md5, size));
             }
+
+            string outName = Path.Combine(BuildPath, ABUtil.sABVersionName);
+            IOUtils.CreatTextFile(outName, sb.ToString());
         }
 
         /// <summary>

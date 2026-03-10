@@ -12,7 +12,7 @@ namespace AssetBundleFramework
     /// 自动处理文件不存在、格式错误等异常情况
     /// 是AssetBundle构建系统配置管理的基础工具类
     /// </summary>
-    public class XmlUtility
+    public static class XmlUtility
     {
         /// <summary>
         /// 从XML文件读取并反序列化为指定类型的对象

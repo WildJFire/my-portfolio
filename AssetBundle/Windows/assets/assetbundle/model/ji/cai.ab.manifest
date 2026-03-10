@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3354262673
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 925a127d5c331aa6382432d71e2dbc10
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b30fce1a9ad74efb72be6c308c56e365
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 925a127d5c331aa6382432d71e2dbc10
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/ji/cai/lambert2.mat
+- Assets/AssetBundle/Model/ji/cai/CAIXUK.png
+Dependencies: []

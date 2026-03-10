@@ -192,14 +192,16 @@ namespace HotUpdate
         /// <summary>
         /// 解析版本文件，返回一个文件列表
         /// </summary>
-        /// <param name="sContent">由多行“包名 版本md5值 包大小”构成</param>
+        /// <param name="content">由多行“包名 版本md5值 包大小”构成</param>
         /// <returns></returns>
-        public Dictionary<string, ABVersionItem> ConvertToAllABPackDesc(string sContent)
+        public Dictionary<string, ABVersionItem> ConvertToAllABPackDesc(string content)
         {
             Dictionary<string, ABVersionItem> items = new Dictionary<string, ABVersionItem>();
-            string[] lines = sContent.Split('\n');
+            content = content.Replace("\r", "");
+            string[] lines = content.Split('\n');
             foreach (var line in lines)
             {
+                if (string.IsNullOrEmpty(line)) continue;
                 string[] data = line.Split(' ');
                 items.Add(data[0], new ABVersionItem
                     { ABName = data[0], Md5 = data[1], Size = int.Parse(data[2]) }
@@ -228,7 +230,7 @@ namespace HotUpdate
             _nCurDownloadedSize += abDownloader.GetDownloadResSize();
             if (_allNeedDownloadABPack.Count > 0)
             {
-                abDownloader.DownloadABPack(_allNeedDownloadABPack[0]);
+                StartCoroutine(abDownloader.DownloadABPack(_allNeedDownloadABPack[0]));
                 _allNeedDownloadABPack.RemoveAt(0);
             }
             else
@@ -236,7 +238,7 @@ namespace HotUpdate
                 bool isAllDownloadFinished = true;
                 foreach (var item in _allDownloadedABPack)
                 {
-                    if (!item.IsDownloading)
+                    if (item.IsDownloading)
                     {
                         isAllDownloadFinished = false;
                     }

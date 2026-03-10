@@ -21,7 +21,7 @@ namespace AssetBundleFramework
         /// </summary>
         [DisplayName("项目名称")]
         [XmlAttribute("ProjectName")]
-        public string projectName { get; set; }
+        public string ProjectName { get; set; }
 
         /// <summary>
         /// 全局资源后缀列表
@@ -30,7 +30,7 @@ namespace AssetBundleFramework
         /// </summary>
         [DisplayName("后缀列表")]
         [XmlAttribute("SuffixList")]
-        public List<string> suffixList { get; set; } = new();
+        public List<string> SuffixList { get; set; } = new();
 
         /// <summary>
         /// AssetBundle构建输出根目录
@@ -39,7 +39,7 @@ namespace AssetBundleFramework
         /// </summary>
         [DisplayName("打包文件目录文件夹")]
         [XmlAttribute("BuildRoot")]
-        public string buildRoot { get; set; }
+        public string BuildRoot { get; set; }
 
         /// <summary>
         /// 构建项列表
@@ -77,7 +77,7 @@ namespace AssetBundleFramework
         public void EndInit()
         {
             // 将构建根路径转换为绝对路径，并统一使用正斜杠
-            buildRoot = Path.GetFullPath(buildRoot.Replace("\\", "/"));
+            BuildRoot = Path.GetFullPath(BuildRoot.Replace("\\", "/"));
 
             // 清空字典，准备重新构建索引
             ItemDic.Clear();

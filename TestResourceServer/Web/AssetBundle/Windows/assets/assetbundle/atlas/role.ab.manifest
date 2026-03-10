@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 490301573
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4c7f36ca02ba05fbb8d48b3c65aeeb4e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 4c7f36ca02ba05fbb8d48b3c65aeeb4e
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_008.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_006.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_011.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_010.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_003.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_000.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_005.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_007.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_002.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_004.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_001.png
+- Assets/AssetBundle/Atlas/Role/Hog_Attack_009.png
+Dependencies: []

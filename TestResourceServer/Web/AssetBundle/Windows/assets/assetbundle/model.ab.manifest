@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 2361663922
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7d3c381e0c5c25b746100253b2e80872
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fb0caf1ab1156e4271bebc41ef75b4ee
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7d3c381e0c5c25b746100253b2e80872
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/Ji.prefab
+- Assets/AssetBundle/Model/ji_02.controller
+Dependencies:
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animations/idles.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animations/movement.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animations/orc.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animations/social.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/animators.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/ji.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/ji/cai.ab

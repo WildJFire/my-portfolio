@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 2104519199
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0907b23bf0e1b4f633a82e54239b6197
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fde6811ecc759911b6d3426a16e53445
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0907b23bf0e1b4f633a82e54239b6197
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/Animations/Orc/Victory_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/WalkBWD_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/WalkRight_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/GetHit_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/Dizzy_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/RunFWD_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/IdleNormal_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/SenseSomethingST_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/Taunting_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/Die_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/WalkLeft_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/Attack01_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/IdleBattle_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/SenseSomethingRPT_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/Attack02_Orc_Anim.fbx
+- Assets/AssetBundle/Model/Animations/Orc/WalkFWD_Orc_Anim.fbx
+Dependencies:
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/assetbundle/model/meshes.ab

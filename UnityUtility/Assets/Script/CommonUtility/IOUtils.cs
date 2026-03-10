@@ -8,8 +8,8 @@ namespace CommonUtility
         /// 创建txt文件的方法
         /// </summary>
         /// <param name="sFilePath"></param>
-        /// <param name="sContent"></param>
-        public static void CreatTextFile(string sFilePath, string sContent)
+        /// <param name="content"></param>
+        public static void CreatTextFile(string sFilePath, string content)
         {
             //文件存在则删除
             if (File.Exists(sFilePath))
@@ -20,8 +20,13 @@ namespace CommonUtility
             using (FileStream obj_versionStream = File.Create(sFilePath))
             {
                 using (StreamWriter obj_writer = new StreamWriter(obj_versionStream))
-                {
-                    obj_writer.WriteLine(sContent);
+                { 
+                    content = content.Replace("\r", "");
+                    if (content.EndsWith("\n"))
+                    {
+                        content = content.Substring(0, content.Length - 1);
+                    }
+                    obj_writer.Write(content);
                 }
             }
         }

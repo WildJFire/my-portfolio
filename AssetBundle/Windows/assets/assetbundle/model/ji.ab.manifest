@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1851224077
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 41540870a983442a78d47ad7f6381acc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4c4a741bc998ac9508c2cbb90099a4d9
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 41540870a983442a78d47ad7f6381acc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/ji/ji_02.fbx
+Dependencies: []

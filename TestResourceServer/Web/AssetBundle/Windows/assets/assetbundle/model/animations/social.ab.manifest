@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2218123799
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 93adf41c3365f897f334a0c8f5c74247
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a0e5d512d53c80c8fe7582c1b6ea86c0
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 93adf41c3365f897f334a0c8f5c74247
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundle/Model/Animations/Social/BasicMotions@Cheer01.fbx
+Dependencies: []

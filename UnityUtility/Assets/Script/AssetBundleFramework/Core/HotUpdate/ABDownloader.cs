@@ -84,8 +84,7 @@ namespace HotUpdate
             }
             
             // 构建本地保存路径（使用 Application.persistentDataPath）
-            string packPath = $"{Application.persistentDataPath}/{_abVersionItem.ABName}";
-            Debug.Log($"下载 AB 包 {url} 成功，保存路径：{packPath}");
+            string packPath = Path.Combine(Application.persistentDataPath, _abVersionItem.ABName.Replace('\\', '/'));            Debug.Log($"下载 AB 包 {url} 成功，保存路径：{packPath}");
                         
             // 确保文件目录存在
             IOUtils.CreateDirectoryOfFile(packPath);

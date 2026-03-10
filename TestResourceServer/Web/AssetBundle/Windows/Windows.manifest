@@ -1,0 +1,87 @@
+ManifestFileVersion: 0
+CRC: 344832513
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets/assetbundle/common/model.rendertexture.ab
+      Dependencies: {}
+    Info_1:
+      Name: assets/assetbundle/atlas/role.ab
+      Dependencies: {}
+    Info_2:
+      Name: assets/assetbundle/background/1.png.ab
+      Dependencies: {}
+    Info_3:
+      Name: assets/assetbundle/background/2.png.ab
+      Dependencies: {}
+    Info_4:
+      Name: assets/assetbundle/background/3.png.ab
+      Dependencies: {}
+    Info_5:
+      Name: assets/assetbundle/background/4.png.ab
+      Dependencies: {}
+    Info_6:
+      Name: assets/assetbundle/background/5.png.ab
+      Dependencies: {}
+    Info_7:
+      Name: assets/assetbundle/background/6.png.ab
+      Dependencies: {}
+    Info_8:
+      Name: assets/assetbundle/background/7.png.ab
+      Dependencies: {}
+    Info_9:
+      Name: assets/assetbundle/icon.ab
+      Dependencies: {}
+    Info_10:
+      Name: assets/assetbundle/model.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/model/ji.ab
+        Dependency_1: assets/assetbundle/model/ji/cai.ab
+        Dependency_2: assets/assetbundle/model/animations/movement.ab
+        Dependency_3: assets/assetbundle/model/animations/social.ab
+        Dependency_4: assets/assetbundle/model/animations/orc.ab
+        Dependency_5: assets/assetbundle/model/animations/idles.ab
+        Dependency_6: assets/assetbundle/model/animators.ab
+    Info_11:
+      Name: assets/assetbundle/shader.ab
+      Dependencies: {}
+    Info_12:
+      Name: assets/assetbundle/ui/testui.prefab.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/common/model.rendertexture.ab
+        Dependency_1: assets/assetbundle/atlas/role.ab
+        Dependency_2: assets/assetbundle/background/6.png.ab
+        Dependency_3: assets/assetbundle/icon.ab
+    Info_13:
+      Name: assets/assetbundle/ui/uiroot.prefab.ab
+      Dependencies: {}
+    Info_14:
+      Name: assets/assetbundle/ui/test/testui.prefab.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/common/model.rendertexture.ab
+    Info_15:
+      Name: assets/assetbundle/model/ji.ab
+      Dependencies: {}
+    Info_16:
+      Name: assets/assetbundle/model/ji/cai.ab
+      Dependencies: {}
+    Info_17:
+      Name: assets/assetbundle/model/animations/movement.ab
+      Dependencies: {}
+    Info_18:
+      Name: assets/assetbundle/model/animations/social.ab
+      Dependencies: {}
+    Info_19:
+      Name: assets/assetbundle/model/animations/orc.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/model/meshes.ab
+    Info_20:
+      Name: assets/assetbundle/model/animations/idles.ab
+      Dependencies: {}
+    Info_21:
+      Name: assets/assetbundle/model/animators.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/model/animations/orc.ab
+    Info_22:
+      Name: assets/assetbundle/model/meshes.ab
+      Dependencies: {}
