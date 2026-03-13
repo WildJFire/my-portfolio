@@ -1,4 +1,5 @@
 using AssetBundleFramework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -65,6 +66,7 @@ public class TestUI : MonoBehaviour
     [SerializeField] private Image _rawImage_Bear = null;
 
     [SerializeField] private Transform _modelRoot;
+    [SerializeField] private TextMeshProUGUI _text;
     private GameObject _modelGO;
     private IResource _modelResource;
 

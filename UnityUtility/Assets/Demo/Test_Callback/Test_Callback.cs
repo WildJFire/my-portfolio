@@ -33,7 +33,7 @@ public class Test_Callback : MonoBehaviour
 
         _platForm  = GetPlatform();
         // 构建 AssetBundle 根目录路径
-        _prefixPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../../AssetBundle")).Replace("\\", "/");
+        _prefixPath = Path.GetFullPath(Path.Combine(Application.persistentDataPath, "AssetBundle/")).Replace("\\", "/");
         _prefixPath += $"/{_platForm}";
         // 初始化 ResourceManager
         ResourceManager.Instance.Initialize(GetPlatform(), GetFileUrl, false, 0);
