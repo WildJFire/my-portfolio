@@ -12,7 +12,7 @@ namespace AssetBundleFramework
     /// 提供同步和异步两种加载方式，支持编辑器模式和真机模式
     /// 采用单例模式，全局唯一实例
     /// </summary>
-    public class ResourceManager : CommonUtility.Singleton<ResourceManager>
+    public class ResourceManager : CommonUtility.Singleton<ResourceManager>, IResourceManager
     {
         /// <summary>
         /// 主清单 AssetBundle 文件名常量

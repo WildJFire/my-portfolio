@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,33 @@ namespace HotUpdate
     public static string _sBaseUrl = "http://192.168.255.10:5858";
 #endif
 
+        #region 生命周期
+
+        /// <summary>
+        /// 当单个文件下载完成，触发时会传入下载文件的大小
+        /// </summary>
+        public Action<float> OnOneFileDownload = (f) =>
+        {
+            Debug.Log("OnOneFileDownload 触发");
+        };
+        
+        /// <summary>
+        /// 当开始下载时，触发时会传入下载文件的总大小
+        /// </summary>
+        public Action<float> OnStartDownload = (f) =>
+        {
+            Debug.Log("OnStartDownload 触发");
+        };
+        
+        /// <summary>
+        /// 当下载完成时
+        /// </summary>
+        public Action OnEndDownload = () => {
+            Debug.Log("OnEndDownload 触发");
+        };
+        
+        #endregion
+
         /// <summary>
         /// 版本文件名
         /// </summary>
@@ -38,12 +66,12 @@ namespace HotUpdate
         /// <summary>
         /// 所需下载资源总大小
         /// </summary>
-        private float _nDownloadTotalSize = 0;
+        private float _downloadTotalSize = 0;
 
         /// <summary>
         /// 当前已下载资源的大小
         /// </summary>
-        private float _nCurDownloadedSize = 0;
+        private float _currentDownloadedSize = 0;
 
         /// <summary>
         /// 所有需要下载的AB包
@@ -110,7 +138,7 @@ namespace HotUpdate
                 }
 
                 string sVersionData = webRequest.downloadHandler.text;
-                //Debug.Log("成功获取到版本相关数据 >>>> \n" + sVersionData);
+                Debug.Log("成功获取到版本相关数据 >>>> \n" + sVersionData);
                 CheckNeedDownloadABPack(sVersionData);
             }
         }
@@ -123,7 +151,6 @@ namespace HotUpdate
         {
             Dictionary<string, ABVersionItem> items = ConvertToAllABPackDesc(sServerVersionData);
 
-
             if (File.Exists(_sVersionLocalFilePath)) //如果本地有版本信息，说明已经下载过了
             {
                 string localVersion = File.ReadAllText(_sVersionLocalFilePath);
@@ -133,19 +160,19 @@ namespace HotUpdate
                     if (!_clientVersionInfo.ContainsKey(item.Key)) //如果本地没有该包
                     {
                         _allNeedDownloadABPack.Add(item.Value);
-                        _nDownloadTotalSize += item.Value.Size;
+                        _downloadTotalSize += item.Value.Size;
                     }
                     else if (item.Value.Md5 != _clientVersionInfo[item.Key].Md5)
                     {
                         _allNeedDownloadABPack.Add(item.Value);
-                        _nDownloadTotalSize += item.Value.Size;
+                        _downloadTotalSize += item.Value.Size;
                     }
                 }
             }
             else //如果本地没有版本信息，说明是第一次下载
             {
                 _allNeedDownloadABPack.AddRange(items.Values);
-                _nDownloadTotalSize = items.Sum(item => item.Value.Size);
+                _downloadTotalSize = items.Sum(item => item.Value.Size);
             }
 
             StartDownloadAllABPack();
@@ -157,6 +184,7 @@ namespace HotUpdate
         /// <param name="list_allABPack"></param>
         void StartDownloadAllABPack()
         {
+            OnStartDownload?.Invoke(_downloadTotalSize);
             int maxCount = _allNeedDownloadABPack.Count;
             if (maxCount <= 0)
             {
@@ -186,6 +214,7 @@ namespace HotUpdate
             }
 
             IOUtils.CreatTextFile(_sVersionLocalFilePath, sb.ToString());
+            OnEndDownload?.Invoke();
             Debug.Log("热更新: 已完成所有的AB包下载, 进入下一个阶段 TODO");
         }
 
@@ -199,10 +228,12 @@ namespace HotUpdate
             Dictionary<string, ABVersionItem> items = new Dictionary<string, ABVersionItem>();
             content = content.Replace("\r", "");
             string[] lines = content.Split('\n');
+            int i = 0;
             foreach (var line in lines)
             {
+                Debug.Log($"第{i++}行数据 >>>> {line}");
                 if (string.IsNullOrEmpty(line)) continue;
-                string[] data = line.Split(' ');
+                string[] data = line.Split('|');
                 items.Add(data[0], new ABVersionItem
                     { ABName = data[0], Md5 = data[1], Size = int.Parse(data[2]) }
                 );
@@ -227,7 +258,10 @@ namespace HotUpdate
         /// <param name="abDownloader">需要切换的下载器</param>
         public void ChangeDownloadNextABPack(ABDownloader abDownloader)
         {
-            _nCurDownloadedSize += abDownloader.GetDownloadResSize();
+            float lastDownloadSize = abDownloader.GetDownloadResSize();
+            _currentDownloadedSize += lastDownloadSize;
+            OnOneFileDownload?.Invoke(lastDownloadSize);
+
             if (_allNeedDownloadABPack.Count > 0)
             {
                 StartCoroutine(abDownloader.DownloadABPack(_allNeedDownloadABPack[0]));

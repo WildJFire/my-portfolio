@@ -97,7 +97,6 @@ namespace HotUpdate
             
             // 将下载的数据写入文件
             File.WriteAllBytes(packPath, request.downloadHandler.data);
-            
             // 更新客户端的 AB 包版本信息
             HotUpdateManager.Instance.UpdateClientABInfo(_abVersionItem);
             

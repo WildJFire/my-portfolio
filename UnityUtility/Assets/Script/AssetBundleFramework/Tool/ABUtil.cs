@@ -25,12 +25,12 @@ namespace AssetBundleFramework
         /// <returns></returns>
         public static string GetABPackVersionStr(string sABName, string sFileVersionMd5, string sFileSize)
         {
-            return $"{sABName} {sFileVersionMd5} {sFileSize}";
+            return $"{sABName}|{sFileVersionMd5}|{sFileSize}";
         }
         
         public static string GetABPackVersionStr(ABVersionItem item)
         {
-            return $"{item.ABName} {item.Md5} {item.Size}";
+            return $"{item.ABName}|{item.Md5}|{item.Size}";
         }
 
 
