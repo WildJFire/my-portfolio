@@ -1,15 +1,36 @@
-# Unity Resource Loading Framework (Unity Utility)
+# UnityUtility
 
-A resource loading and hot-update framework based on Unity, supporting multiple resource loading methods (coroutines, callbacks, async/await), and features such as AssetBundle packaging and hot updates.
+Unity Resource Management Framework - AssetBundle Packaging, Loading, and Hot Update Solution
 
-## Features
+## Project Overview
 
-- **Multiple Loading Methods**: Supports three asynchronous resource loading modes: coroutines, callbacks, and async/await
-- **AssetBundle Management**: Complete asset bundle management system with support for synchronous and asynchronous loading
-- **Hot Update System**: Built-in hot update manager supporting incremental resource updates
-- **Dependency Management**: Automatically handles resource dependencies
-- **Editor Tools**: Provides visual configuration and build tools
-- **Performance Analysis**: Built-in performance analyzer to monitor the packaging process
+UnityUtility is a comprehensive Unity resource management framework that provides support for AssetBundle packaging, loading, hot updates, and multiple asynchronous loading modes. The framework is designed to be simple yet feature-rich, making it suitable for resource management needs across various Unity projects.
+
+## Core Features
+
+### 1. AssetBundle Management
+- Synchronous/Asynchronous resource loading
+- Automatic dependency management
+- Reference counting and automatic cleanup
+- Editor mode support (test without packaging during development)
+
+### 2. Multiple Asynchronous Loading Modes
+- **Coroutine Mode**: Traditional coroutine-based asynchronous loading
+- **Callback Mode**: Callback-based asynchronous loading
+- **async/await Mode**: Modern C# asynchronous programming support
+
+### 3. Hot Update System
+- Version detection and comparison
+- Incremental update support
+- MD5 checksum verification
+- Download progress tracking
+- Multi-threaded download management
+
+### 4. Editor Build Tools
+- Visual build configuration
+- Support for multiple packaging strategies
+- Flexible resource type configuration
+- Build performance analysis
 
 ## Project Structure
 
@@ -17,118 +38,98 @@ A resource loading and hot-update framework based on Unity, supporting multiple 
 UnityUtility/
 ├── Assets/
 │   ├── Script/
-│   │   ├── AssetBundleFramework/     # Core framework
+│   │   ├── AssetBundleFramework/
 │   │   │   ├── Core/
-│   │   │   │   ├── Awaiter/         # async/await support
-│   │   │   │   ├── Bundle/          # AssetBundle management
-│   │   │   │   ├── HotUpdate/       # Hot update system
-│   │   │   │   └── Resource/        # Resource loading
-│   │   │   ├── Editor/              # Editor tools
-│   │   │   └── Tool/                # Utility classes
-│   │   └── CommonUtility/           # General utilities
-│   ├── Demo/                        # Demo scenes
-│   └── AssetBundle/                 # Resource files
-└── TestResourceServer/              # Test server
+│   │   │   │   ├── Awaiter/       # async/await support
+│   │   │   │   ├── Bundle/         # AssetBundle core management
+│   │   │   │   ├── HotUpdate/      # Hot update module
+│   │   │   │   └── Resource/       # Resource loading core
+│   │   │   ├── Editor/             # Editor build tools
+│   │   │   └── Tool/               # Utility classes
+│   │   ├── CommonUtility/          # Common utility classes
+│   │   └── UIComponent/            # UI components
+│   ├── Demo/                       # Example scenes
+│   └── AssetBundle/                # Source asset files
+├── AssetBundle/                    # Build output directory
+├── TestResourceServer/             # Test resource server
+└── BuildSetting.xml                # Build configuration file
 ```
 
-## Core Modules
+## Quick Start
 
-### Resource Loading (Resource)
+### 1. Requirements
+- Unity 2020.3 or higher
+- .NET Standard 2.0+
 
-- `IResource` - Resource interface
-- `ResourceManager` - Resource manager
-- `AResource` / `Resource` - Synchronous resource
-- `AResourceAsync` / `ResourceAsync` - Asynchronous resource
+### 2. Build AssetBundles
 
-### AssetBundle Management (Bundle)
+1. Configure the `BuildSetting.xml` file
+2. In the Unity Editor, go to: `Tool -> ResourceBuild -> Build`
 
-- `BundleManager` - Bundle manager
-- `ABundle` - Bundle base class
-- `Bundle` / `BundleAsync` - Synchronous/asynchronous implementations
-
-### Hot Update (HotUpdate)
-
-- `HotUpdateManager` - Hot update manager
-- `ABDownloader` - Downloader
-
-### Awaiter Support
-
-- `IAwaitable` / `IAwaiter` - Awaitable interface
-- `ResourceAwaiter` - Resource awaiter implementation
-
-## Usage Examples
-
-### 1. Loading with Coroutines
+### 3. Resource Loading
 
 ```csharp
-private IEnumerator Initialize()
+// Coroutine mode
+IEnumerator LoadResource()
 {
-    var resource = ResourceManager.Instance.Load("assets/prefab.ab", true);
+    var resource = ResourceManager.Instance.Load("assets/assetbundle/ui/testui.prefab.ab", true);
     yield return resource;
-    var gameObject = resource.Instantiate();
+    var prefab = resource.GetAsset<GameObject>();
 }
-```
 
-### 2. Loading with Callbacks
-
-```csharp
-ResourceManager.Instance.LoadWithCallback("assets/prefab.ab", true, (resource) => {
-    var gameObject = resource.Instantiate();
-});
-```
-
-### 3. Loading with async/await
-
-```csharp
-private async void Initialize()
+// Callback mode
+ResourceManager.Instance.LoadWithCallback("assets/assetbundle/ui/testui.prefab.ab", true, (resource) =>
 {
-    var resource = await ResourceManager.Instance.LoadWithAwaiter("assets/prefab.ab");
-    var gameObject = resource.Instantiate();
+    var prefab = resource.GetAsset<GameObject>();
+});
+
+// async/await mode
+async Task LoadResourceAsync()
+{
+    var resource = await ResourceManager.Instance.LoadWithAwaiter("assets/assetbundle/ui/testui.prefab.ab");
+    var prefab = resource.GetAsset<GameObject>();
 }
 ```
 
-## Packaging Configuration
-
-The framework uses a `BuildSetting.xml` configuration file to define packaging rules:
-
-```xml
-<BuildSetting ProjectName="YourProject" SuffixList=".prefab,.fbx">
-    <BuildItem BundleType="File" ResourceType="Direct" AssetPath="Assets/Prefabs" Suffix=".prefab" />
-    <BuildItem BundleType="Directory" ResourceType="Directory" AssetPath="Assets/Models" />
-</BuildSetting>
-```
-
-### Bundle Types (EBundleType)
-
-- `File` - Single file packaging
-- `Directory` - Directory packaging
-
-### Resource Types (EResourceType)
-
-- `Direct` - Direct reference
-- `Directory` - Directory reference
-
-### Build Operations
-
-In the Unity Editor: `Tool > ResourceBuild > Build`
-
-## Hot Update Usage
+### 4. Hot Update
 
 ```csharp
 HotUpdateManager.Instance.StartHotUpdate();
 ```
 
-Hot update workflow:
-1. Download version file
-2. Compare local and server versions
-3. Download required resource bundles
-4. Complete update
+## Example Scenes
 
-## Dependencies
+The project includes multiple demo scenes located in the `Assets/Demo/` directory:
 
-- Unity 2020.3+
-- .NET Standard 2.0+
+| Scene | Description |
+|-------|-------------|
+| TestUI | UI resource loading test |
+| Test_Coroutine | Coroutine asynchronous loading example |
+| Test_Callback | Callback asynchronous loading example |
+| Test_Await_Async | async/await asynchronous loading example |
+| Hot_Update | Hot update functionality demo |
+| Progress_Bar | Progress bar component demo |
+
+## Framework Components
+
+### Core Classes
+
+- **ResourceManager**: Resource manager responsible for loading and unloading resources
+- **BundleManager**: AssetBundle manager handling bundle loading and dependencies
+- **HotUpdateManager**: Hot update manager handling version checks and resource downloads
+- **ABVersionItem**: Version information item storing AB package version data
+
+### Common Utilities
+
+- **Singleton<T>**: Singleton base class
+- **MonoSingleton<T>**: MonoBehaviour singleton base class
+- **Profiler**: Performance analysis tool
+- **IOUtils**: File operation utilities
+
+### UI Components
+
+- **ProgressBar**: Progress bar component supporting dynamic value updates
 
 ## License
 
-MIT License
+This project is intended solely for learning and communication purposes.
