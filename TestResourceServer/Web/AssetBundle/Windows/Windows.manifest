@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 344832513
+CRC: 461516221
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -46,42 +46,79 @@ AssetBundleManifest:
       Name: assets/assetbundle/shader.ab
       Dependencies: {}
     Info_12:
+      Name: assets/assetbundle/ui/testhotupdateui.prefab.ab
+      Dependencies:
+        Dependency_0: assets/assetbundle/common/model.rendertexture.ab
+        Dependency_1: assets/assetbundle/atlas/role.ab
+        Dependency_2: assets/assetbundle/background/6.png.ab
+        Dependency_3: assets/assetbundle/icon.ab
+        Dependency_4: assets/textmesh pro/resources/fonts & materials.ab
+    Info_13:
       Name: assets/assetbundle/ui/testui.prefab.ab
       Dependencies:
         Dependency_0: assets/assetbundle/common/model.rendertexture.ab
         Dependency_1: assets/assetbundle/atlas/role.ab
         Dependency_2: assets/assetbundle/background/6.png.ab
         Dependency_3: assets/assetbundle/icon.ab
-    Info_13:
+        Dependency_4: assets/textmesh pro/resources/fonts & materials.ab
+    Info_14:
       Name: assets/assetbundle/ui/uiroot.prefab.ab
       Dependencies: {}
-    Info_14:
+    Info_15:
       Name: assets/assetbundle/ui/test/testui.prefab.ab
       Dependencies:
         Dependency_0: assets/assetbundle/common/model.rendertexture.ab
-    Info_15:
-      Name: assets/assetbundle/model/ji.ab
-      Dependencies: {}
     Info_16:
-      Name: assets/assetbundle/model/ji/cai.ab
+      Name: assets/textmesh pro/fonts.ab
       Dependencies: {}
     Info_17:
-      Name: assets/assetbundle/model/animations/movement.ab
-      Dependencies: {}
+      Name: assets/textmesh pro/resources.ab
+      Dependencies:
+        Dependency_0: assets/textmesh pro/resources/fonts & materials.ab
+        Dependency_1: assets/textmesh pro/resources/sprite assets.ab
+        Dependency_2: assets/textmesh pro/resources/style sheets.ab
     Info_18:
-      Name: assets/assetbundle/model/animations/social.ab
+      Name: assets/textmesh pro/shaders.ab
       Dependencies: {}
     Info_19:
+      Name: assets/textmesh pro/resources/fonts & materials.ab
+      Dependencies:
+        Dependency_0: assets/textmesh pro/fonts.ab
+        Dependency_1: assets/textmesh pro/shaders.ab
+    Info_20:
+      Name: assets/textmesh pro/resources/sprite assets.ab
+      Dependencies:
+        Dependency_0: assets/textmesh pro/shaders.ab
+        Dependency_1: assets/textmesh pro/sprites.ab
+    Info_21:
+      Name: assets/textmesh pro/resources/style sheets.ab
+      Dependencies: {}
+    Info_22:
+      Name: assets/assetbundle/model/ji.ab
+      Dependencies: {}
+    Info_23:
+      Name: assets/assetbundle/model/ji/cai.ab
+      Dependencies: {}
+    Info_24:
+      Name: assets/textmesh pro/sprites.ab
+      Dependencies: {}
+    Info_25:
+      Name: assets/assetbundle/model/animations/movement.ab
+      Dependencies: {}
+    Info_26:
+      Name: assets/assetbundle/model/animations/social.ab
+      Dependencies: {}
+    Info_27:
       Name: assets/assetbundle/model/animations/orc.ab
       Dependencies:
         Dependency_0: assets/assetbundle/model/meshes.ab
-    Info_20:
+    Info_28:
       Name: assets/assetbundle/model/animations/idles.ab
       Dependencies: {}
-    Info_21:
+    Info_29:
       Name: assets/assetbundle/model/animators.ab
       Dependencies:
         Dependency_0: assets/assetbundle/model/animations/orc.ab
-    Info_22:
+    Info_30:
       Name: assets/assetbundle/model/meshes.ab
       Dependencies: {}

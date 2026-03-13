@@ -1,50 +1,66 @@
-AssetBundle\Windows\manifest.ab 3c5c060802df60caf9cbb0634e57289c 3
-AssetBundle\Windows\Windows 2c83a83eed88d3e53a33774e8456aaaa 3
-AssetBundle\Windows\Windows.manifest acff520feb77f88bd5326f1f165ef9fb 3
-AssetBundle\Windows\assets\assetbundle\icon.ab 878df581ce33b602103540c764094d0b 2320
-AssetBundle\Windows\assets\assetbundle\icon.ab.manifest 0160938489d5398e58cb1f4be47603cd 2
-AssetBundle\Windows\assets\assetbundle\model.ab e8a49f67417e56c45248edcbfc17401f 17
-AssetBundle\Windows\assets\assetbundle\model.ab.manifest 5a556b6780f792de2fef92b1b7d953ef 2
-AssetBundle\Windows\assets\assetbundle\shader.ab a3ccda463bee77d67cade88897ae5626 20
-AssetBundle\Windows\assets\assetbundle\shader.ab.manifest cd9aa88456294cb3c180a34a8a814093 1
-AssetBundle\Windows\assets\assetbundle\atlas\role.ab 3d08996e9579fe17473d99817b9b4f75 1051
-AssetBundle\Windows\assets\assetbundle\atlas\role.ab.manifest 233fc38f477713ecf5a53fefbaa91d37 2
-AssetBundle\Windows\assets\assetbundle\background\1.png.ab e00c0ea60d372b8b8b45ab1802805929 42
-AssetBundle\Windows\assets\assetbundle\background\1.png.ab.manifest be03a041862a9715d5520333e5907ec6 1
-AssetBundle\Windows\assets\assetbundle\background\2.png.ab b105450b91cdee8ab0757d03adea0ece 38
-AssetBundle\Windows\assets\assetbundle\background\2.png.ab.manifest f83e23941f9d65496be4c9f631e89cbc 1
-AssetBundle\Windows\assets\assetbundle\background\3.png.ab 770b968b4f420eaa73f16b4feb3fee0b 28
-AssetBundle\Windows\assets\assetbundle\background\3.png.ab.manifest f66c61fa1c06a646cc2f8a9cc481bdba 1
-AssetBundle\Windows\assets\assetbundle\background\4.png.ab 1253a6f0af4e30136d3ff264cf8c67c8 33
-AssetBundle\Windows\assets\assetbundle\background\4.png.ab.manifest 636bd0ab310ecb62f0dc069349de60f3 1
-AssetBundle\Windows\assets\assetbundle\background\5.png.ab bde6f356f598628e5beb64911d2adfd1 32
-AssetBundle\Windows\assets\assetbundle\background\5.png.ab.manifest 01c35de8706b843efc71512b5a0cd4b3 1
-AssetBundle\Windows\assets\assetbundle\background\6.png.ab cb3cde708f5412717e51be9a7f3d8482 40
-AssetBundle\Windows\assets\assetbundle\background\6.png.ab.manifest 585ba93145e77b1ad4bff6baf34df46f 1
-AssetBundle\Windows\assets\assetbundle\background\7.png.ab ecc5636f61c8d96126bddf408d7c2e95 36
-AssetBundle\Windows\assets\assetbundle\background\7.png.ab.manifest d874f14ab67aced5cba178a793e98bb6 1
-AssetBundle\Windows\assets\assetbundle\common\model.rendertexture.ab 9e404a5cfc44a2e8c0363095d36236de 2
-AssetBundle\Windows\assets\assetbundle\common\model.rendertexture.ab.manifest 45ae491cb7e8f5f07771d5c3c60a4a09 1
-AssetBundle\Windows\assets\assetbundle\model\animators.ab 18ec730ed14c10d45efc70a3c6752f77 6
-AssetBundle\Windows\assets\assetbundle\model\animators.ab.manifest 14782bcfcaf3aad0af514394ba78cd83 1
-AssetBundle\Windows\assets\assetbundle\model\ji.ab bb6a8768fab1ab67d0d1bbf64aa499dd 2436
-AssetBundle\Windows\assets\assetbundle\model\ji.ab.manifest e91afda77fde75fa668bcd22f2b2db1b 1
-AssetBundle\Windows\assets\assetbundle\model\meshes.ab 3afbd23a3a35033142a78c432074b7ec 176
-AssetBundle\Windows\assets\assetbundle\model\meshes.ab.manifest 5ebea8ae0682378ed8f84a8647980f13 1
-AssetBundle\Windows\assets\assetbundle\ui\testui.prefab.ab c6b0a91123e1a8ddd8c45e55e64d98db 161
-AssetBundle\Windows\assets\assetbundle\ui\testui.prefab.ab.manifest c3da2f7060c9f3bba7f70a60c6cc83f2 3
-AssetBundle\Windows\assets\assetbundle\ui\uiroot.prefab.ab 0a718b715f55d866b4f4ab9e5d1caa56 6
-AssetBundle\Windows\assets\assetbundle\ui\uiroot.prefab.ab.manifest ac6fcec64171dd0cb87cf77abdb85ce4 2
-AssetBundle\Windows\assets\assetbundle\model\animations\idles.ab 7095e681e4cd9dbc52a573c5ab8d4d1c 144
-AssetBundle\Windows\assets\assetbundle\model\animations\idles.ab.manifest fff67de74180569ba127563572381e90 1
-AssetBundle\Windows\assets\assetbundle\model\animations\movement.ab 2475d152b92e79c12fc8d2f09d5aa5cc 186
-AssetBundle\Windows\assets\assetbundle\model\animations\movement.ab.manifest 75b5008b32cdc296ffa696483cd7fc9f 1
-AssetBundle\Windows\assets\assetbundle\model\animations\orc.ab 9a562f2b004ed700ba095ebbd068149a 3010
-AssetBundle\Windows\assets\assetbundle\model\animations\orc.ab.manifest 0c9a46d6fea3a3f3d44601f2d8af7f77 2
-AssetBundle\Windows\assets\assetbundle\model\animations\social.ab 69c460f85f138fc1bd31249629d8b55c 37
-AssetBundle\Windows\assets\assetbundle\model\animations\social.ab.manifest 287b2b5650148e403c54c5f46c9d34c8 1
-AssetBundle\Windows\assets\assetbundle\model\ji\cai.ab 17eafb64714ba9f2c4fd311152ba03bc 210
-AssetBundle\Windows\assets\assetbundle\model\ji\cai.ab.manifest a1c92f0f8183b0cb9a1856af249a7233 1
-AssetBundle\Windows\assets\assetbundle\ui\test\testui.prefab.ab c011eabcc983cc6045ebdf07fb5cc16f 14
-AssetBundle\Windows\assets\assetbundle\ui\test\testui.prefab.ab.manifest c7a6a5b85eab7d8875191c1917c57d9d 3
-
+AssetBundle\Windows\manifest.ab|6a06c047803ff3ad791fc457e6062495|4
+AssetBundle\Windows\Windows|894c3087d80571dce093a3d96f502f66|3
+AssetBundle\Windows\Windows.manifest|4a77193e3a53851d1b131f252cd20943|5
+AssetBundle\Windows\HotUpdate\HotUpdateTest.dll.bytes|7fcebc6c9eb78acb0d873aedf9300fe5|12
+AssetBundle\Windows\assets\assetbundle\icon.ab|878df581ce33b602103540c764094d0b|2320
+AssetBundle\Windows\assets\assetbundle\icon.ab.manifest|d0692cdc3cd47e910bd3d4afe846914c|2
+AssetBundle\Windows\assets\assetbundle\model.ab|e8a49f67417e56c45248edcbfc17401f|17
+AssetBundle\Windows\assets\assetbundle\model.ab.manifest|59a4e2168d4783bc27a8727b302df1f5|2
+AssetBundle\Windows\assets\assetbundle\shader.ab|2a9058311fa2732e72b980e66fac7988|20
+AssetBundle\Windows\assets\assetbundle\shader.ab.manifest|ae9c049c8073ce67ccbf6f914d4e4ca5|1
+AssetBundle\Windows\assets\textmesh pro\fonts.ab|77f329101331949ca2973b6d48193e1e|222
+AssetBundle\Windows\assets\textmesh pro\fonts.ab.manifest|5a9686d22c5c96ef26418a78f62c5297|1
+AssetBundle\Windows\assets\textmesh pro\resources.ab|f5620bfe18f32981394fe20a1211d48c|4
+AssetBundle\Windows\assets\textmesh pro\resources.ab.manifest|0e2134b909beca9d4c27a5166f778c37|2
+AssetBundle\Windows\assets\textmesh pro\shaders.ab|e0d537f1bdd1ad5d9f5a0c9449c44772|56
+AssetBundle\Windows\assets\textmesh pro\shaders.ab.manifest|09bd82ef31cf2f769848bd6758dd66b8|2
+AssetBundle\Windows\assets\textmesh pro\sprites.ab|68c0b264b97cfafa74ad9461d08d50ae|67
+AssetBundle\Windows\assets\textmesh pro\sprites.ab.manifest|e08a7bc4b6598eab4ec9ec673207db0c|1
+AssetBundle\Windows\assets\assetbundle\atlas\role.ab|3d08996e9579fe17473d99817b9b4f75|1051
+AssetBundle\Windows\assets\assetbundle\atlas\role.ab.manifest|073484ad716d1f8dee01d4a572e0229d|2
+AssetBundle\Windows\assets\assetbundle\background\1.png.ab|e00c0ea60d372b8b8b45ab1802805929|42
+AssetBundle\Windows\assets\assetbundle\background\1.png.ab.manifest|5654fb28d70236dbc60a6182c9d3888b|1
+AssetBundle\Windows\assets\assetbundle\background\2.png.ab|b105450b91cdee8ab0757d03adea0ece|38
+AssetBundle\Windows\assets\assetbundle\background\2.png.ab.manifest|3c0da91be3af9ef41a92e80c9747e70f|1
+AssetBundle\Windows\assets\assetbundle\background\3.png.ab|770b968b4f420eaa73f16b4feb3fee0b|28
+AssetBundle\Windows\assets\assetbundle\background\3.png.ab.manifest|1ac87b36bd2691f5b1f497a2871aa5b5|1
+AssetBundle\Windows\assets\assetbundle\background\4.png.ab|1253a6f0af4e30136d3ff264cf8c67c8|33
+AssetBundle\Windows\assets\assetbundle\background\4.png.ab.manifest|a9d024faf668c1107b9b20b6b0603ad6|1
+AssetBundle\Windows\assets\assetbundle\background\5.png.ab|bde6f356f598628e5beb64911d2adfd1|32
+AssetBundle\Windows\assets\assetbundle\background\5.png.ab.manifest|811bf82b57abc133f130e4cc0e45657d|1
+AssetBundle\Windows\assets\assetbundle\background\6.png.ab|cb3cde708f5412717e51be9a7f3d8482|40
+AssetBundle\Windows\assets\assetbundle\background\6.png.ab.manifest|b2f029343e27e592e6087c53da2a2420|1
+AssetBundle\Windows\assets\assetbundle\background\7.png.ab|ecc5636f61c8d96126bddf408d7c2e95|36
+AssetBundle\Windows\assets\assetbundle\background\7.png.ab.manifest|aebc88743fd46cd459ce39c80d03b56b|1
+AssetBundle\Windows\assets\assetbundle\common\model.rendertexture.ab|9e404a5cfc44a2e8c0363095d36236de|2
+AssetBundle\Windows\assets\assetbundle\common\model.rendertexture.ab.manifest|d4ec30fab0a19174766324e1a0784a9e|1
+AssetBundle\Windows\assets\assetbundle\model\animators.ab|18ec730ed14c10d45efc70a3c6752f77|6
+AssetBundle\Windows\assets\assetbundle\model\animators.ab.manifest|7c56fa81bd8ecf77a5e72cbd1910f206|1
+AssetBundle\Windows\assets\assetbundle\model\ji.ab|3b91dd7fb8ec0a73f989816e301bbab2|2874
+AssetBundle\Windows\assets\assetbundle\model\ji.ab.manifest|d4ea75243623d2f102eb22da48f66735|1
+AssetBundle\Windows\assets\assetbundle\model\meshes.ab|9a6e891d235f394ef13e1ea4f1759ff3|213
+AssetBundle\Windows\assets\assetbundle\model\meshes.ab.manifest|cd71f5bc0388b75adece46a3f402328a|1
+AssetBundle\Windows\assets\assetbundle\ui\testhotupdateui.prefab.ab|8fe60dd9fa4cfb8d8b17cf93288cccac|164
+AssetBundle\Windows\assets\assetbundle\ui\testhotupdateui.prefab.ab.manifest|dd68a7f8a404eefdcd4472e3a87b4e7a|4
+AssetBundle\Windows\assets\assetbundle\ui\testui.prefab.ab|45dd4e8c7467e7a65d0d192083c9b1dd|163
+AssetBundle\Windows\assets\assetbundle\ui\testui.prefab.ab.manifest|0745480f427a3f305de88484949e7e5a|4
+AssetBundle\Windows\assets\assetbundle\ui\uiroot.prefab.ab|fc0ad0c71cfbc8e45363d2c85282204c|6
+AssetBundle\Windows\assets\assetbundle\ui\uiroot.prefab.ab.manifest|2229055d253849c7c9b5a57af039dfc0|2
+AssetBundle\Windows\assets\textmesh pro\resources\fonts & materials.ab|8d2f2b7ab3130eb6aaf672bc03f9248a|365
+AssetBundle\Windows\assets\textmesh pro\resources\fonts & materials.ab.manifest|eda3e961902aae5922fea5ccd16683f1|3
+AssetBundle\Windows\assets\textmesh pro\resources\sprite assets.ab|6119861f6e12323b06b689cdc264d023|6
+AssetBundle\Windows\assets\textmesh pro\resources\sprite assets.ab.manifest|aee0a43b5ba5c16f1ed2cadd47057c31|2
+AssetBundle\Windows\assets\textmesh pro\resources\style sheets.ab|4a5c4568f12dd1bae4d00c78c89e586b|3
+AssetBundle\Windows\assets\textmesh pro\resources\style sheets.ab.manifest|f7fab56f88ac2d62f34d38c96f8d0064|1
+AssetBundle\Windows\assets\assetbundle\model\animations\idles.ab|7095e681e4cd9dbc52a573c5ab8d4d1c|144
+AssetBundle\Windows\assets\assetbundle\model\animations\idles.ab.manifest|afb86726b661c0ce9d2e286e736cebf9|1
+AssetBundle\Windows\assets\assetbundle\model\animations\movement.ab|2475d152b92e79c12fc8d2f09d5aa5cc|186
+AssetBundle\Windows\assets\assetbundle\model\animations\movement.ab.manifest|1e36fbe2a04986574a1cce0459b8c3ae|1
+AssetBundle\Windows\assets\assetbundle\model\animations\orc.ab|b216ac13393077170daaa7ea8e4ac498|4103
+AssetBundle\Windows\assets\assetbundle\model\animations\orc.ab.manifest|dfdbc4d7844a3c83d4ff97ac54f7505e|2
+AssetBundle\Windows\assets\assetbundle\model\animations\social.ab|69c460f85f138fc1bd31249629d8b55c|37
+AssetBundle\Windows\assets\assetbundle\model\animations\social.ab.manifest|63e05122427d4a9accd1ddf8934983ef|1
+AssetBundle\Windows\assets\assetbundle\model\ji\cai.ab|db9a3a91b80a4ae39a22fc0c05e275b6|210
+AssetBundle\Windows\assets\assetbundle\model\ji\cai.ab.manifest|fe725acb6b067616fc7d4eae49474c16|1
+AssetBundle\Windows\assets\assetbundle\ui\test\testui.prefab.ab|97525454e916388c22530fa0cd41d95d|14
+AssetBundle\Windows\assets\assetbundle\ui\test\testui.prefab.ab.manifest|d4676649a749f2f4d11e587ae3ee5c2e|3
