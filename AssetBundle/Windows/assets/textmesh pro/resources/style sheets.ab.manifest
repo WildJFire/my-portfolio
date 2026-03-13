@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1131982501
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cb73b76d375b67ab9cba81cf045c2bf8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: dcb77cd0de90bf4d9714c801b1e6e286
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: cb73b76d375b67ab9cba81cf045c2bf8
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: ab2114bdc8544297b417dfefe9f1e410, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Style
+Assets:
+- Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+Dependencies: []

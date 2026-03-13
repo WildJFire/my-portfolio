@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114505204708254692}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 331638541331430610}
+        m_TargetAssemblyTypeName: HotUpdateTest, HotUpdateTest
         m_MethodName: OnUnloadModel
         m_Mode: 1
         m_Arguments:
@@ -326,8 +326,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114505204708254692}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 331638541331430610}
+        m_TargetAssemblyTypeName: HotUpdateTest, HotUpdateTest
         m_MethodName: OnLoadModel
         m_Mode: 1
         m_Arguments:
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114505204708254692}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 331638541331430610}
+        m_TargetAssemblyTypeName: HotUpdateTest, HotUpdateTest
         m_MethodName: OnChangeIcon
         m_Mode: 1
         m_Arguments:
@@ -1255,8 +1255,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114505204708254692}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 331638541331430610}
+        m_TargetAssemblyTypeName: HotUpdateTest, HotUpdateTest
         m_MethodName: OnChangeBear
         m_Mode: 1
         m_Arguments:
@@ -1425,9 +1425,9 @@ GameObject:
   - component: {fileID: 224147043184898688}
   - component: {fileID: 223927794460982312}
   - component: {fileID: 114614989671079762}
-  - component: {fileID: 114505204708254692}
+  - component: {fileID: 331638541331430610}
   m_Layer: 5
-  m_Name: TestUI
+  m_Name: TestHotUpdateUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114505204708254692
+--- !u!114 &331638541331430610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868986960776924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba62c0a849994243ba797b8fa82bfa8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c51e7547130f82468754a82c61492e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rawImage_bg: {fileID: 114213113426093634}
@@ -1515,6 +1515,11 @@ MonoBehaviour:
   _rawImage_Bear: {fileID: 114866940368037956}
   _modelRoot: {fileID: 224117995282091398}
   _text: {fileID: 6967591943523709103}
+  _buttonChangeIcon: {fileID: 0}
+  _buttonChangeBackground: {fileID: 0}
+  _buttonLoadModel: {fileID: 0}
+  _buttonUnloadModel: {fileID: 0}
+  _buttonChangeScript: {fileID: 0}
 --- !u!1 &1886972544379794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,8 +1641,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114505204708254692}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 331638541331430610}
+        m_TargetAssemblyTypeName: HotUpdateTest, HotUpdateTest
         m_MethodName: OnChangeBackground
         m_Mode: 1
         m_Arguments:
@@ -1749,7 +1754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1776,7 +1781,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

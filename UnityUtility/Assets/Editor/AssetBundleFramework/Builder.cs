@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using CommonUtility;
 using HotUpdate;
+using UnityEditor;
 
 namespace AssetBundleFramework
 {
@@ -55,11 +56,14 @@ namespace AssetBundleFramework
         /// 根构建分析器：监控整个AssetBundle构建过程
         /// </summary>
         private static readonly Profiler _buildProfiler = new(nameof(Builder));
-        
+
+        public static readonly Profiler _copyHotUpdateProfiler = new(nameof(CopyHotUpdateDll));
+
         /// <summary>
         /// 构建版本文件
         /// </summary>
-        private static readonly Profiler _buildVersionFileProfiler = _buildProfiler.CreateChild(nameof(BuildVersionFile));
+        private static readonly Profiler _buildVersionFileProfiler =
+            _buildProfiler.CreateChild(nameof(BuildVersionFile));
 
         /// <summary>
         /// 加载构建设置分析器
@@ -125,12 +129,13 @@ namespace AssetBundleFramework
         /// 用于标识AssetBundle文件类型，便于文件识别和管理
         /// </summary>
         public const string BUNDLE_SUFFIX = ".ab";
+
         /// <summary>
         /// AssetBundle清单文件后缀名
         /// Unity自动生成的元数据文件，包含Bundle的依赖关系和哈希信息
         /// </summary>
         public const string BUNDLE_MANIFEST_SUFFIX = ".manifest";
-        
+
         /// <summary>
         /// 主清单文件名称
         /// 用于存储资源配置、Bundle映射和依赖关系的核心描述文件
@@ -169,6 +174,14 @@ namespace AssetBundleFramework
         /// 路径格式：{buildRoot}/{platform}/
         /// </summary>
         public static string BuildPath { get; set; }
+        
+        public static string HotUpdateDllPath = Path
+            .GetFullPath(Path.Combine(Application.dataPath, "../HybridCLRData/HotUpdateDlls/StandaloneWindows64"))
+            .Replace("\\", "/");
+
+        public static string HotUpdateScriptPath = Path
+            .GetFullPath(Path.Combine(Application.dataPath, "AssetBundle/HotUpdate/"))
+            .Replace("\\", "/");
 
         /// <summary>
         /// 临时工作目录路径
@@ -327,7 +340,6 @@ namespace AssetBundleFramework
         /// </summary>
         private static void Build()
         {
-            
             //启动根性能分析器
             _buildProfiler.Start();
 
@@ -356,11 +368,17 @@ namespace AssetBundleFramework
             ClearAssetBundle(BuildPath, buildItems);
             _clearBundleProfiler.Stop();
 
-            //第六步：打包manifest文件
+            //第六步：复制热更新dll文件
+            _copyHotUpdateProfiler.Start();
+            CopyHotUpdateDll();
+            _copyHotUpdateProfiler.Stop();
+
+            //第七步：打包manifest文件
             _buildManifestProfiler.Start();
             BuildManifest();
             _buildManifestProfiler.Stop();
-            
+
+            //第八步：生成版本文件
             _buildVersionFileProfiler.Start();
             BuildVersionFile();
             _buildVersionFileProfiler.Stop();
@@ -369,6 +387,40 @@ namespace AssetBundleFramework
             _buildProfiler.Stop();
             EditorUtility.ClearProgressBar();
             Debug.Log($"打包结果:{_buildProfiler}");
+        }
+
+        private static void CopyHotUpdateDll()
+        {
+            //获取所有热更新脚本文件名
+            DirectoryInfo folderScript = new(HotUpdateScriptPath);
+            FileInfo[] filesScript = folderScript.GetFiles("*.asmdef", SearchOption.AllDirectories);
+            HashSet<string> setScript = new();
+            foreach (var directory in filesScript)
+            {
+                string name = directory.Name.Replace(".asmdef", "");
+                setScript.Add(name);
+            }
+
+            //获取所有热更新dll文件名
+            List<string> listDll = new();
+            DirectoryInfo folderDll = new(HotUpdateDllPath);
+            FileInfo[] filesDll = folderDll.GetFiles("*.dll", SearchOption.AllDirectories);
+            foreach (var file in filesDll)
+            {
+                if (setScript.Contains(file.Name.Replace(".dll", "")))
+                {
+                    listDll.Add(file.Name);
+                }
+            }
+
+            string destPath = $"{BuildPath}/HotUpdate/";
+            foreach (var file in listDll)
+            {
+                string destFile = Path.GetFullPath(Path.Combine(destPath, file)).Replace("\\", "/") + ".bytes";
+                string sourceFile = Path.GetFullPath(Path.Combine(HotUpdateDllPath, file)).Replace("\\", "/");
+                IOUtils.CreateDirectoryOfFile(destFile);
+                File.Copy(sourceFile, destFile);
+            }
         }
 
         private static void BuildVersionFile()
@@ -380,7 +432,7 @@ namespace AssetBundleFramework
 
             StringBuilder sb = new();
             DirectoryInfo folder = new(BuildPath);
-            FileInfo[] files = folder.GetFiles("*" , SearchOption.AllDirectories);
+            FileInfo[] files = folder.GetFiles("*", SearchOption.AllDirectories);
             foreach (var file in files)
             {
                 string path = file.FullName;
@@ -417,14 +469,14 @@ namespace AssetBundleFramework
 
             //计算相对于项目根目录的相对路径前缀
             string prefix = Application.dataPath.Replace("/Assets", "/").Replace("\\", "/");
-            
+
             //配置主清单AssetBundle的构建信息
             AssetBundleBuild manifest = new AssetBundleBuild();
             manifest.assetBundleName = $"{MANIFEST}{BUNDLE_SUFFIX}";
             manifest.assetNames = new string[3]
             {
-                resourcePath_Binary.Replace(prefix, ""),  // 资源映射文件
-                bundlePath_Binary.Replace(prefix, ""),    // Bundle配置文件
+                resourcePath_Binary.Replace(prefix, ""), // 资源映射文件
+                bundlePath_Binary.Replace(prefix, ""), // Bundle配置文件
                 dependencyPath_Binary.Replace(prefix, ""), // 依赖关系文件
             };
 
@@ -450,7 +502,7 @@ namespace AssetBundleFramework
             //清理临时构建目录
             if (!Directory.Exists(tempBuildPath))
             {
-                Directory.Delete(tempBuildPath,  true);
+                Directory.Delete(tempBuildPath, true);
             }
 
             //更新进度条并清理
@@ -520,7 +572,7 @@ namespace AssetBundleFramework
             {
                 Directory.CreateDirectory(BuildPath);
             }
-            
+
             //执行实际的AssetBundle构建
             AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(
                 BuildPath,

@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 539751784
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 91063bb7869e57066536f52b2c6afc76
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5b2e31778654e1294187ab28b79e19c8
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 91063bb7869e57066536f52b2c6afc76
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Sprite
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_SpriteCharacter
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_SpriteGlyph
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.FaceInfo
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphMetrics
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphRect
+Assets:
+- Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+Dependencies:
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/textmesh pro/shaders.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/textmesh pro/sprites.ab

@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 1326747621
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 39b85bb5e010527c165989a0a78ae441
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 26a3822c56a93b88bc4fcf03f2065e47
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 39b85bb5e010527c165989a0a78ae441
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab2114bdc8544297b417dfefe9f1e410, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2705215ac5b84b70bacc50632be6e391, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/TextMesh Pro/Resources/TMP Settings.asset
+- Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+- Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+Dependencies:
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/textmesh pro/resources/fonts
+  & materials.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/textmesh pro/resources/sprite
+  assets.ab
+- D:/Develop/unity/project/UnityUtility/AssetBundle/Windows/assets/textmesh pro/resources/style
+  sheets.ab

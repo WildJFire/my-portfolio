@@ -163,7 +163,7 @@ namespace AssetBundleFramework
 
             //第二步：收集所有符合条件的文件
             HashSet<string> files = new HashSet<string>(); //使用HashSet自动去重
-
+            
             //遍历所有打包项
             for (int i = 0; i < Items.Count; i++)
             {
@@ -179,7 +179,7 @@ namespace AssetBundleFramework
                 {
                     continue;
                 }
-
+                
                 //获取指定路径下的所有文件
                 List<string> tempFiles = Builder.GetFiles(item.AssetPath, null, item.Suffixes.ToArray());
 
