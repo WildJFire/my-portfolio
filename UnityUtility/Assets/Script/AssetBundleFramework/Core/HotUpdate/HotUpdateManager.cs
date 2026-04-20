@@ -16,9 +16,9 @@ namespace HotUpdate
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         public static string BaseUrl = "http://127.0.0.1:5858";
 #elif UNITY_ANDROID
-    public static string _sBaseUrl = "http://192.168.255.10:5858";
+    public static string _sBaseUrl = "http://127.0.0.1:5858";
 #elif UNITY_IPHONE
-    public static string _sBaseUrl = "http://192.168.255.10:5858";
+    public static string _sBaseUrl = "http://127.0.0.1:5858";
 #endif
 
         #region 生命周期

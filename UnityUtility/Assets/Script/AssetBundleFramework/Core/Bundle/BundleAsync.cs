@@ -8,7 +8,6 @@ namespace AssetBundleFramework
     /// <summary>
     /// 异步 AssetBundle 实现类
     /// 提供非阻塞式的资源加载方式，通过 Update 方法轮询加载进度
-    /// 适用于大型资源或需要显示加载进度的场景
     /// </summary>
     internal class BundleAsync : ABundleAsync
     {

@@ -16,16 +16,10 @@ namespace CommonUtility
                 {
                     // 尝试在场景中查找
                     _instance = FindFirstObjectByType<T>();
-
+                    InitParent();
                     // 如果场景中没有，则动态创建
                     if (_instance == null)
                     {
-                        _singletonRoot = GameObject.Find("SingletonRoot");
-                        if (_singletonRoot == null)
-                        {
-                            _singletonRoot = new GameObject("SingletonRoot");
-                        }
-
                         var go = new GameObject(typeof(T).Name);
                         go.name = typeof(T).Name;
                         go.transform.SetParent(_singletonRoot.transform);
@@ -37,12 +31,24 @@ namespace CommonUtility
                             DontDestroyOnLoad(go);
                         }
                     }
+                    else if (_instance.gameObject.transform.parent != _singletonRoot.transform)
+                    {
+                        _instance.gameObject.transform.SetParent(_singletonRoot.transform);
+                    }
                 }
 
                 return _instance;
             }
         }
 
+        private static void InitParent()
+        {
+            _singletonRoot = GameObject.Find("SingletonRoot");
+            if (_singletonRoot == null)
+            {
+                _singletonRoot = new GameObject("SingletonRoot");
+            }
+        }
 
         void Awake()
         {

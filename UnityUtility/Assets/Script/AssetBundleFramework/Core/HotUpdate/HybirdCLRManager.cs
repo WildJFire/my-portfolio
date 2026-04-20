@@ -12,10 +12,17 @@ namespace HotUpdate
     /// </summary>
     public class HybirdCLRManager: MonoSingleton<HybirdCLRManager>
     {
+        #if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        public static string platfrom = "Windows";
+#elif UNITY_ANDROID
+    public static string platfrom = "Android";
+#elif UNITY_IPHONE
+    public static string platfrom = "IOS";
+#endif
         /// <summary>
         /// 热更新 DLL 文件路径 (在 StreamingAssets 或 PersistentData 目录)
         /// </summary>
-        private string _hotUpdateDllPath => Path.Combine(Application.persistentDataPath, "AssetBundle/Windows/HotUpdate");
+        private string _hotUpdateDllPath => Path.Combine(Application.persistentDataPath, $"AssetBundle/{platfrom}/HotUpdate");
 
         /// <summary>
         /// 加载的热更新程序集

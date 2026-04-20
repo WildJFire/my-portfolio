@@ -15,17 +15,22 @@ namespace UIComponent
         /// <summary>
         /// Unity UI Slider 组件，用于显示进度条的视觉表现
         /// </summary>
+        [SerializeField]
         private Slider _progress;
 
         /// <summary>
         /// Unity UI TextMeshProUGUI 组件，用于显示当前进度数值文本
         /// </summary>
+        [SerializeField]
         private TextMeshProUGUI _progressText;
+
+        [SerializeField]
+        private float _amount = 1;
 
         private float _currentPercent;
         private float _target;
         private bool _isRunnig = false;
-        private float _amount;
+       
 
         /// <summary>
         /// 更新 UI 显示，包括文本和进度条动画
@@ -54,7 +59,7 @@ namespace UIComponent
             // 循环执行直到当前进度百分比与目标值近似相等
             while (!Mathf.Approximately(_currentPercent, _target)) //Approximately 比较两个浮点数是否近似相等
             {
-                // 使用 Lerp 进行平滑插值，速度系数为 5
+                // 使用 Lerp 进行平滑插值
                 this._currentPercent = Mathf.Lerp(this._currentPercent, this._target, Time.deltaTime * _amount);
                 this._progress.value = this._currentPercent;
                 yield return null;
