@@ -1,38 +1,33 @@
 
 
-# UnityUtility
+# Unity Utility (AssetBundle Framework)
 
-Unity 资源管理框架 - AssetBundle 打包、加载与热更新解决方案
+Unity 资源管理与热更新框架 - 一个完整的 Unity  AssetBundle 解决方案。
 
-## 项目简介
+## 概述
 
-UnityUtility 是一个完整的 Unity 资源管理框架，提供了 AssetBundle 打包、加载、热更新以及多种异步加载模式的支持。该框架设计简洁、功能完善，适用于各类 Unity 项目的资源管理需求。
+Unity Utility 是一个功能强大的 Unity 资源管理框架，提供了完整的 AssetBundle 打包、加载和热更新功能。该框架支持同步/异步加载、依赖管理、热更新下载等功能，适用于 Unity 项目的资源管理需求。
 
 ## 核心功能
 
-### 1. AssetBundle 管理
-- 同步/异步资源加载
-- 依赖关系自动管理
-- 引用计数与自动释放
-- 编辑器模式支持（开发阶段无需打包即可测试）
+### 资源加载
+- **同步加载**: 支持同步加载资源
+- **异步加载**: 支持异步加载资源
+- **协程支持**: 提供基于协程的加载方式
+- **Async/Await 支持**: 提供基于 C# async/await 的现代化加载方式
+- **回调支持**: 传统的回调函数加载方式
 
-### 2. 多种异步加载模式
-- **协程模式 (Coroutine)**：传统的协程异步加载
-- **回调模式 (Callback)**：基于回调的异步加载
-- **async/await 模式**：现代 C# 异步编程支持
+### 热更新系统
+- **AB 包下载**: 支持增量更新和 AB 包下载
+- **版本管理**: 完整的版本号文件管理
+- **MD5 校验**: 文件完整性校验
+- **HybirdCLR 支持**: 支持代码热更新
 
-### 3. 热更新系统
-- 版本检测与比对
-- 增量更新支持
-- MD5 校验
-- 下载进度跟踪
-- 多线程下载管理
-
-### 4. 编辑器构建工具
-- 可视化构建配置
-- 多种打包策略支持
-- 灵活的资源类型配置
-- 构建性能分析
+### 打包系统
+- **可视化配置**: 通过 XML 配置文件管理打包规则
+- **多种打包模式**: 支持文件级和目录级打包
+- **依赖分析**: 自动分析资源依赖关系
+- **多平台支持**: 支持 Windows 等平台
 
 ## 项目结构
 
@@ -42,102 +37,114 @@ UnityUtility/
 │   ├── Script/
 │   │   ├── AssetBundleFramework/
 │   │   │   ├── Core/
-│   │   │   │   ├── Awaiter/       # async/await 支持
-│   │   │   │   ├── Bundle/         # AssetBundle 核心管理
-│   │   │   │   ├── HotUpdate/      # 热更新模块
-│   │   │   │   └── Resource/       # 资源加载核心
-│   │   │   ├── Editor/             # 编辑器构建工具
-│   │   │   └── Tool/               # 工具类
-│   │   ├── CommonUtility/          # 公共工具类
-│   │   └── UIComponent/            # UI 组件
-│   ├── Demo/                       # 示例场景
-│   └── AssetBundle/                # 资源源文件
-├── AssetBundle/                    # 构建输出目录
-├── TestResourceServer/             # 测试资源服务器
-└── BuildSetting.xml                # 构建配置文件
+│   │   │   │   ├── Awaiter/          # async/await 支持
+│   │   │   │   ├── Bundle/           # Bundle 管理系统
+│   │   │   │   ├── HotUpdate/        # 热更新系统
+│   │   │   │   └── Resource/         # 资源加载核心
+│   │   │   └── Tool/                 # 工具类
+│   │   ├── CommonUtility/            # 通用工具
+│   │   ├── Event/                    # 事件系统
+│   │   └── UIComponent/              # UI 组件
+│   ├── Editor/
+│   │   └── AssetBundleFramework/    # 编辑器打包工具
+│   ├── Demo/                         # 示例场景
+│   └── AssetBundle/                  # 资源文件
+└── BuildSetting.xml                  # 打包配置文件
 ```
 
 ## 快速开始
 
-### 1. 环境要求
-- Unity 2020.3 或更高版本
-- .NET Standard 2.0+
-
-### 2. 构建 AssetBundle
-
-1. 配置 `BuildSetting.xml` 文件
-2. 在 Unity 编辑器中执行：`Tool -> ResourceBuild -> Build`
-
-### 3. 资源加载
+### 初始化
 
 ```csharp
-// 协程模式
-IEnumerator LoadResource()
-{
-    var resource = ResourceManager.Instance.Load("assets/assetbundle/ui/testui.prefab.ab", true);
-    yield return resource;
-    var prefab = resource.GetAsset<GameObject>();
-}
+// 方式一：回调方式
+ResourceManager.Instance.Initialize(platform, getFileCallback, editor, offset);
 
-// 回调模式
-ResourceManager.Instance.LoadWithCallback("assets/assetbundle/ui/testui.prefab.ab", true, (resource) =>
-{
-    var prefab = resource.GetAsset<GameObject>();
-});
+// 方式二：协程方式
+yield return ResourceManager.Instance.Initialize(platform, getFileCallback, editor, offset);
 
-// async/await 模式
-async Task LoadResourceAsync()
-{
-    var resource = await ResourceManager.Instance.LoadWithAwaiter("assets/assetbundle/ui/testui.prefab.ab");
-    var prefab = resource.GetAsset<GameObject>();
-}
+// 方式三：Async/Await 方式
+await ResourceManager.Instance.LoadWithAwaiter(url);
 ```
 
-### 4. 热更新
+### 加载资源
 
 ```csharp
+// 同步加载
+IResource resource = ResourceManager.Instance.Load(url, false);
+GameObject obj = resource.Instantiate();
+
+// 异步加载
+IResource resource = ResourceManager.Instance.Load(url, true);
+yield return resource;
+GameObject obj = resource.Instantiate();
+
+// 使用回调
+ResourceManager.Instance.LoadWithCallback(url, true, callback);
+```
+
+### 热更新
+
+```csharp
+// 启动热更新
 HotUpdateManager.Instance.StartHotUpdate();
+
+// 监听下载进度
+HotUpdateManager.Instance.OnOneFileDownload += (progress) => { };
+HotUpdateManager.Instance.OnStartDownload += () => { };
+HotUpdateManager.Instance.OnEndDownload += () => { };
 ```
 
-## 示例场景
+## 示例 Demo
 
-项目提供了多个演示场景，位于 `Assets/Demo/` 目录下：
+项目提供了多个示例场景：
 
-| 场景 | 说明 |
+| 场景 | 描述 |
 |------|------|
-| TestUI | UI 资源加载测试 |
-| Test_Coroutine | 协程异步加载示例 |
-| Test_Callback | 回调异步加载示例 |
-| Test_Await_Async | async/await 异步加载示例 |
-| Hot_Update | 热更新功能演示 |
-| Progress_Bar | 进度条组件演示 |
+| Test_Callback | 回调方式加载示例 |
+| Test_Coroutine | 协程方式加载示例 |
+| Test_Await_Async | Async/Await 方式加载示例 |
+| Hot_Update | 热更新功能示例 |
+| Progress_Bar | 进度条组件示例 |
 
-## 框架组件
+## 配置说明
 
-### 核心类
+### BuildSetting.xml
 
-- **ResourceManager**：资源管理器，负责资源的加载与释放
-- **BundleManager**：AssetBundle 管理器，处理 Bundle 的加载与依赖
-- **HotUpdateManager**：热更新管理器，处理版本检测与资源下载
-- **ABVersionItem**：版本信息项，存储 AB 包版本数据
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<BuildSetting ProjectName="YourProject">
+    <SuffixList>
+        <string>.prefab</string>
+        <string>.png</string>
+    </SuffixList>
+    <BuildRoot>AssetBundle/Windows</BuildRoot>
+    <Items>
+        <BuildItem BundleType="File" ResourceType="Direct" AssetPath="Assets/AssetBundle/UI" Suffix=".prefab" />
+    </Items>
+</BuildSetting>
+```
 
-### 公共工具
+### 打包类型
 
-- **Singleton<T>**：单例基类
-- **MonoSingleton<T>**：MonoBehaviour 单例基类
-- **Profiler**：性能分析工具
-- **IOUtils**：文件操作工具
+- **EBundleType.File**: 每个资源单独打包
+- **EBundleType.Directory**: 目录级打包
 
-### UI 组件
+### 资源类型
 
-- **ProgressBar**：进度条组件，支持动态数值变化
+- **EResourceType.Direct**: 直接加载
+- **EResourceType.Scene**: 场景资源
+
+## 依赖项
+
+- Unity 2019.4+
+- .NET Standard 2.0+
+- TextMeshPro (UI)
+
+## 技术支持
+
+如有问题，请提交 Issue 或联系维护者。
 
 ## 许可证
 
 本项目仅供学习交流使用。
-
-##开发计划
-- **代码热更**：基于HybirdCLR
-- **对象池**
-- **时间系统**：使用多线程优化
-- **虚拟列表**

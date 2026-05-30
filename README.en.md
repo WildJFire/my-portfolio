@@ -1,36 +1,31 @@
-# UnityUtility
+# Unity Utility (AssetBundle Framework)
 
-Unity Resource Management Framework - AssetBundle Packaging, Loading, and Hot Update Solution
+Unity Resource Management and Hot Update Framework – A complete Unity AssetBundle solution.
 
-## Project Overview
+## Overview
 
-UnityUtility is a comprehensive Unity resource management framework that provides support for AssetBundle packaging, loading, hot updates, and multiple asynchronous loading modes. The framework is designed to be simple yet feature-rich, making it suitable for resource management needs across various Unity projects.
+Unity Utility is a powerful Unity resource management framework that provides comprehensive AssetBundle packaging, loading, and hot update functionality. The framework supports synchronous/asynchronous loading, dependency management, hot update downloads, and more, meeting the resource management needs of Unity projects.
 
 ## Core Features
 
-### 1. AssetBundle Management
-- Synchronous/Asynchronous resource loading
-- Automatic dependency management
-- Reference counting and automatic cleanup
-- Editor mode support (test without packaging during development)
+### Resource Loading
+- **Synchronous Loading**: Supports synchronous resource loading
+- **Asynchronous Loading**: Supports asynchronous resource loading
+- **Coroutine Support**: Provides coroutine-based loading methods
+- **Async/Await Support**: Offers modern C# async/await-based loading
+- **Callback Support**: Traditional callback-based loading approach
 
-### 2. Multiple Asynchronous Loading Modes
-- **Coroutine Mode**: Traditional coroutine-based asynchronous loading
-- **Callback Mode**: Callback-based asynchronous loading
-- **async/await Mode**: Modern C# asynchronous programming support
+### Hot Update System
+- **AB Package Download**: Supports incremental updates and AB package downloads
+- **Version Management**: Complete version file management
+- **MD5 Verification**: File integrity checking
+- **HybridCLR Support**: Supports code hot updates
 
-### 3. Hot Update System
-- Version detection and comparison
-- Incremental update support
-- MD5 checksum verification
-- Download progress tracking
-- Multi-threaded download management
-
-### 4. Editor Build Tools
-- Visual build configuration
-- Support for multiple packaging strategies
-- Flexible resource type configuration
-- Build performance analysis
+### Packaging System
+- **Visual Configuration**: Manages packaging rules via XML configuration files
+- **Multiple Packaging Modes**: Supports both file-level and directory-level packaging
+- **Dependency Analysis**: Automatically analyzes resource dependencies
+- **Multi-Platform Support**: Supports platforms such as Windows
 
 ## Project Structure
 
@@ -40,95 +35,113 @@ UnityUtility/
 │   ├── Script/
 │   │   ├── AssetBundleFramework/
 │   │   │   ├── Core/
-│   │   │   │   ├── Awaiter/       # async/await support
-│   │   │   │   ├── Bundle/         # AssetBundle core management
-│   │   │   │   ├── HotUpdate/      # Hot update module
-│   │   │   │   └── Resource/       # Resource loading core
-│   │   │   ├── Editor/             # Editor build tools
-│   │   │   └── Tool/               # Utility classes
-│   │   ├── CommonUtility/          # Common utility classes
-│   │   └── UIComponent/            # UI components
-│   ├── Demo/                       # Example scenes
-│   └── AssetBundle/                # Source asset files
-├── AssetBundle/                    # Build output directory
-├── TestResourceServer/             # Test resource server
-└── BuildSetting.xml                # Build configuration file
+│   │   │   │   ├── Awaiter/          # async/await support
+│   │   │   │   ├── Bundle/           # Bundle management system
+│   │   │   │   ├── HotUpdate/        # Hot update system
+│   │   │   │   └── Resource/         # Core resource loading
+│   │   │   └── Tool/                 # Utility classes
+│   │   ├── CommonUtility/            # General utilities
+│   │   ├── Event/                    # Event system
+│   │   └── UIComponent/              # UI components
+│   ├── Editor/
+│   │   └── AssetBundleFramework/    # Editor packaging tools
+│   ├── Demo/                         # Sample scenes
+│   └── AssetBundle/                  # Resource files
+└── BuildSetting.xml                  # Packaging configuration file
 ```
 
 ## Quick Start
 
-### 1. Requirements
-- Unity 2020.3 or higher
-- .NET Standard 2.0+
-
-### 2. Build AssetBundles
-
-1. Configure the `BuildSetting.xml` file
-2. In the Unity Editor, go to: `Tool -> ResourceBuild -> Build`
-
-### 3. Resource Loading
+### Initialization
 
 ```csharp
-// Coroutine mode
-IEnumerator LoadResource()
-{
-    var resource = ResourceManager.Instance.Load("assets/assetbundle/ui/testui.prefab.ab", true);
-    yield return resource;
-    var prefab = resource.GetAsset<GameObject>();
-}
+// Method 1: Callback approach
+ResourceManager.Instance.Initialize(platform, getFileCallback, editor, offset);
 
-// Callback mode
-ResourceManager.Instance.LoadWithCallback("assets/assetbundle/ui/testui.prefab.ab", true, (resource) =>
-{
-    var prefab = resource.GetAsset<GameObject>();
-});
+// Method 2: Coroutine approach
+yield return ResourceManager.Instance.Initialize(platform, getFileCallback, editor, offset);
 
-// async/await mode
-async Task LoadResourceAsync()
-{
-    var resource = await ResourceManager.Instance.LoadWithAwaiter("assets/assetbundle/ui/testui.prefab.ab");
-    var prefab = resource.GetAsset<GameObject>();
-}
+// Method 3: Async/Await approach
+await ResourceManager.Instance.LoadWithAwaiter(url);
 ```
 
-### 4. Hot Update
+### Loading Resources
 
 ```csharp
+// Synchronous loading
+IResource resource = ResourceManager.Instance.Load(url, false);
+GameObject obj = resource.Instantiate();
+
+// Asynchronous loading
+IResource resource = ResourceManager.Instance.Load(url, true);
+yield return resource;
+GameObject obj = resource.Instantiate();
+
+// Using callback
+ResourceManager.Instance.LoadWithCallback(url, true, callback);
+```
+
+### Hot Update
+
+```csharp
+// Start hot update
 HotUpdateManager.Instance.StartHotUpdate();
+
+// Listen to download progress
+HotUpdateManager.Instance.OnOneFileDownload += (progress) => { };
+HotUpdateManager.Instance.OnStartDownload += () => { };
+HotUpdateManager.Instance.OnEndDownload += () => { };
 ```
 
-## Example Scenes
+## Example Demos
 
-The project includes multiple demo scenes located in the `Assets/Demo/` directory:
+The project includes multiple sample scenes:
 
 | Scene | Description |
 |-------|-------------|
-| TestUI | UI resource loading test |
-| Test_Coroutine | Coroutine asynchronous loading example |
-| Test_Callback | Callback asynchronous loading example |
-| Test_Await_Async | async/await asynchronous loading example |
-| Hot_Update | Hot update functionality demo |
-| Progress_Bar | Progress bar component demo |
+| Test_Callback | Example using callback-based loading |
+| Test_Coroutine | Example using coroutine-based loading |
+| Test_Await_Async | Example using async/await-based loading |
+| Hot_Update | Example demonstrating hot update functionality |
+| Progress_Bar | Example showcasing progress bar component |
 
-## Framework Components
+## Configuration Details
 
-### Core Classes
+### BuildSetting.xml
 
-- **ResourceManager**: Resource manager responsible for loading and unloading resources
-- **BundleManager**: AssetBundle manager handling bundle loading and dependencies
-- **HotUpdateManager**: Hot update manager handling version checks and resource downloads
-- **ABVersionItem**: Version information item storing AB package version data
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<BuildSetting ProjectName="YourProject">
+    <SuffixList>
+        <string>.prefab</string>
+        <string>.png</string>
+    </SuffixList>
+    <BuildRoot>AssetBundle/Windows</BuildRoot>
+    <Items>
+        <BuildItem BundleType="File" ResourceType="Direct" AssetPath="Assets/AssetBundle/UI" Suffix=".prefab" />
+    </Items>
+</BuildSetting>
+```
 
-### Common Utilities
+### Packaging Types
 
-- **Singleton<T>**: Singleton base class
-- **MonoSingleton<T>**: MonoBehaviour singleton base class
-- **Profiler**: Performance analysis tool
-- **IOUtils**: File operation utilities
+- **EBundleType.File**: Each resource packaged individually
+- **EBundleType.Directory**: Directory-level packaging
 
-### UI Components
+### Resource Types
 
-- **ProgressBar**: Progress bar component supporting dynamic value updates
+- **EResourceType.Direct**: Direct loading
+- **EResourceType.Scene**: Scene resource
+
+## Dependencies
+
+- Unity 2019.4+
+- .NET Standard 2.0+
+- TextMeshPro (UI)
+
+## Technical Support
+
+For issues, please submit an Issue or contact the maintainer.
 
 ## License
 
