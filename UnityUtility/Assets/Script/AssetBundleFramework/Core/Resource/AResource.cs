@@ -103,6 +103,10 @@ namespace AssetBundleFramework
             ++Reference;
         }
 
+        /// <summary>
+        /// 实例化资源为GameObject
+        /// </summary>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate()
         {
             Object obj = Asset;
@@ -119,21 +123,88 @@ namespace AssetBundleFramework
             return Object.Instantiate(obj) as GameObject;
         }
 
+        /// <summary>
+        /// 实例化资源为GameObject
+        /// </summary>
+        /// <param name="autoUnload">是否在实例化后自动减少引用计数</param>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate(bool autoUnload)
         {
-            throw new NotImplementedException();
+            Object obj = Asset;
+            if (!obj)
+            {
+                return null;
+            }
+
+            if (!(obj is GameObject))
+            {
+                return null;
+            }
+
+            GameObject instance = Object.Instantiate(obj) as GameObject;
+            if (autoUnload)
+            {
+                ReduceReference();
+            }
+            return instance;
         }
 
+        /// <summary>
+        /// 在指定位置和旋转下实例化资源为GameObject
+        /// </summary>
+        /// <param name="position">实例化的位置</param>
+        /// <param name="rotation">实例化的旋转</param>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate(Vector3 position, Quaternion rotation)
         {
-            throw new NotImplementedException();
+            Object obj = Asset;
+            if (!obj)
+            {
+                return null;
+            }
+
+            if (!(obj is GameObject))
+            {
+                return null;
+            }
+
+            return Object.Instantiate(obj, position, rotation) as GameObject;
         }
 
+        /// <summary>
+        /// 在指定位置和旋转下实例化资源为GameObject
+        /// </summary>
+        /// <param name="position">实例化的位置</param>
+        /// <param name="rotation">实例化的旋转</param>
+        /// <param name="autoUnload">是否在实例化后自动减少引用计数</param>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate(Vector3 position, Quaternion rotation, bool autoUnload)
         {
-            throw new NotImplementedException();
+            Object obj = Asset;
+            if (!obj)
+            {
+                return null;
+            }
+
+            if (!(obj is GameObject))
+            {
+                return null;
+            }
+
+            GameObject instance = Object.Instantiate(obj, position, rotation) as GameObject;
+            if (autoUnload)
+            {
+                ReduceReference();
+            }
+            return instance;
         }
 
+        /// <summary>
+        /// 在指定父物体下实例化资源为GameObject
+        /// </summary>
+        /// <param name="parent">父物体Transform</param>
+        /// <param name="instanceInWorldSpace">是否在世界空间中实例化</param>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate(Transform parent, bool instanceInWorldSpace)
         {
             Object obj = Asset;
@@ -150,9 +221,32 @@ namespace AssetBundleFramework
             return Object.Instantiate(obj, parent, instanceInWorldSpace) as GameObject;
         }
 
+        /// <summary>
+        /// 在指定父物体下实例化资源为GameObject
+        /// </summary>
+        /// <param name="parent">父物体Transform</param>
+        /// <param name="instantiateInWorldSpace">是否在世界空间中实例化</param>
+        /// <param name="autoUnload">是否在实例化后自动减少引用计数</param>
+        /// <returns>实例化的GameObject，如果资源不是GameObject或资源不存在则返回null</returns>
         public GameObject Instantiate(Transform parent, bool instantiateInWorldSpace, bool autoUnload)
         {
-            throw new NotImplementedException();
+            Object obj = Asset;
+            if (!obj)
+            {
+                return null;
+            }
+
+            if (!(obj is GameObject))
+            {
+                return null;
+            }
+
+            GameObject instance = Object.Instantiate(obj, parent, instantiateInWorldSpace) as GameObject;
+            if (autoUnload)
+            {
+                ReduceReference();
+            }
+            return instance;
         }
     }
 }
