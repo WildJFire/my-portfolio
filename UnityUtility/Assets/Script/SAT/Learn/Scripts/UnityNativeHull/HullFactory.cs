@@ -393,12 +393,12 @@ namespace UnityNativeHull
             #endregion
 
             #region 写入数据
-            nativeHull.HalfEdgesNative = new Common.NativeArrayNoLeakDetection<NativeHalfEdge>(nativeHull.EdgeCount, Allocator.Persistent);
+            nativeHull.EdgesNative = new Common.NativeArrayNoLeakDetection<NativeHalfEdge>(nativeHull.EdgeCount, Allocator.Persistent);
             for (int i = 0; i < nativeHull.EdgeCount; i++)
             {
-                nativeHull.HalfEdgesNative[i] = edgesList[i];
+                nativeHull.EdgesNative[i] = edgesList[i];
             }
-            nativeHull.HalfEdges = (NativeHalfEdge*)nativeHull.HalfEdgesNative.GetUnsafePtr();
+            nativeHull.Edges = (NativeHalfEdge*)nativeHull.EdgesNative.GetUnsafePtr();
             #endregion
         }
 

@@ -76,11 +76,11 @@ namespace UnityNativeHull
         /// （即每个形状上两点之间的连线的中点）。
         /// </summary>
         public float3 Position;
-
+        
         public float Distance; // 两形状之间的距离
 
         public float3 Penetration; // 穿透深度
-
+        
     }
 
     // 接触点的ID，包含了一个FeaturePair和一个键值

@@ -1,9 +1,8 @@
-﻿using Common;
-using Unity.Collections;
 using Unity.Mathematics;
+using Unity.Collections;
 using UnityEngine;
-using static UnityEngine.LowLevelPhysics2D.PhysicsShape;
 using Debug = UnityEngine.Debug;
+using Common;
 
 namespace UnityNativeHull
 {
@@ -24,7 +23,7 @@ namespace UnityNativeHull
 
     public class HullIntersection
     {
-
+        
         // 可视化两个 NativeHull（凸包）之间的相交区域
         // 返回值目前总是 true，仅用于调试用途（不做实际相交测试）
         public static bool DrawNativeHullHullIntersection(RigidTransform transform1, NativeHull hull1, RigidTransform transform2, NativeHull hull2)
@@ -249,7 +248,7 @@ namespace UnityNativeHull
         /// <summary>
         /// 获取所有变换后的裁剪面（clipping planes），用于将 incident 面裁剪到 reference 面的边界内。
         /// </summary>
-        public static unsafe void GetClippingPlanes(ref NativeBuffer<ClipPlane> output, RigidTransform transform, NativeHull hull)
+        public static unsafe void GetClippingPlanes(ref NativeBuffer<ClipPlane> output,  RigidTransform transform, NativeHull hull)
         {
             Debug.Assert(output.IsCreated); // 确保输出缓冲区已初始化
 
@@ -270,7 +269,7 @@ namespace UnityNativeHull
         /// 为指定面生成其所有边对应的裁剪平面（side planes），并写入到输出列表中。
         /// </summary>
         public static unsafe void GetFaceSidePlanes(ref NativeBuffer<ClipPlane> output, NativePlane facePlane, int faceIndex, RigidTransform transform, NativeHull hull)
-        {
+        { 
             // 获取该面起始边（HalfEdge结构）
             NativeHalfEdge* start = hull.GetEdgePtr(hull.GetFacePtr(faceIndex)->Edge);
             NativeHalfEdge* current = start;
@@ -529,7 +528,7 @@ namespace UnityNativeHull
             // 在栈上分配一个存储裁剪平面的缓冲区，大小为 hull1 的面数量
             var clippingPlanesStackPtr = stackalloc ClipPlane[hull1.FaceCount];
             var clippingPlanes = new NativeBuffer<ClipPlane>(clippingPlanesStackPtr, hull1.FaceCount);
-
+            
             // 下面两行是注释的备选方案，使用托管堆分配的 NativeList
             // NativeList<ClipPlane> clippingPlanes = new NativeList<ClipPlane>((int)hull1.FaceCount, Allocator.Temp);
 
@@ -562,7 +561,7 @@ namespace UnityNativeHull
                 {
                     return;
                 }
-
+                
                 // 准备下一次裁剪，incidentPolygon 指向最新的裁剪结果
                 incidentPolygon = outputPolygon;
             }
@@ -591,9 +590,9 @@ namespace UnityNativeHull
                     else
                     {
                         // 否则法线保持参考平面法线方向
-                        output.Normal = referencePlane.Normal;
+                        output.Normal = referencePlane.Normal;                        
                     }
-
+                    
                     // 将顶点投影到参考平面上，作为接触点位置
                     float3 position = referencePlane.ClosestPoint(vertex.position);
 

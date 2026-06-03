@@ -96,10 +96,10 @@ namespace UnityNativeHull
             result.Index1 = -1;  // 初始化边1的索引
             result.Index2 = -1;  // 初始化边2的索引
 
-            for (int i = 0; i < hull1.EdgeCount; i++)
+            for (int i = 0; i < hull1.EdgeCount; i+=2)
             {
                 NativeHalfEdge* edge1 = hull1.GetEdgePtr(i);  // 获取第i条边
-                NativeHalfEdge* twin1 = hull2.GetEdgePtr(i + 1);
+                NativeHalfEdge* twin1 = hull1.GetEdgePtr(i + 1);
 
                 Debug.Assert(edge1->Twin == i + 1 && twin1->Twin == i);  // 确保对偶关系
 
@@ -107,22 +107,22 @@ namespace UnityNativeHull
                 float3 Q1 = math.transform(transform, hull1.GetVertex(twin1->Origin));  
                 float3 E1 = Q1 - P1;  // 计算边1的向量
 
-                float3 U1 = math.transform(transform, hull1.GetPlane(edge1->Face).Normal);  // 获取边1所在面的法线
-                float3 V1 = math.transform(transform, hull1.GetPlane(twin1->Face).Normal);
+                float3 U1 = math.rotate(transform, hull1.GetPlane(edge1->Face).Normal);  // 获取边1所在面的法线
+                float3 V1 = math.rotate(transform, hull1.GetPlane(twin1->Face).Normal);
 
-                for (int j = 0; j < hull2.EdgeCount; j++)
+                for (int j = 0; j < hull2.EdgeCount; j+=2)
                 {
                     NativeHalfEdge* edge2 = hull2.GetEdgePtr(j);  // 获取第j条边
-                    NativeHalfEdge* twin2 = hull1.GetEdgePtr(j + 1);
+                    NativeHalfEdge* twin2 = hull2.GetEdgePtr(j + 1);
 
                     Debug.Assert(edge2->Twin == j + 1 && twin2->Twin == j);  // 确保对偶关系
 
-                    float3 P2 = math.transform(transform, hull2.GetVertex(edge2->Origin)); 
-                    float3 Q2 = math.transform(transform, hull2.GetVertex(twin2->Origin));  
-                    float3 E2 = Q2 - P2;  // 计算边2的向量
+                    float3 P2 = hull2.GetVertex(edge2->Origin);  // 边2起点
+                    float3 Q2 = hull2.GetVertex(twin2->Origin);  // 边2终点
+                    float3 E2 = Q2 - P2;  // 边2向量
 
-                    float3 U2 = math.transform(transform, hull2.GetPlane(edge2->Face).Normal);  // 获取边2所在面的法线
-                    float3 V2 = math.transform(transform, hull2.GetPlane(twin2->Face).Normal);
+                    float3 U2 = hull2.GetPlane(edge2->Face).Normal;  // 面法线向量
+                    float3 V2 = hull2.GetPlane(twin2->Face).Normal;  // 面法线向量
 
                     if (IsMinkowskiFace(U1, V1, -E1, -U2, -V2, -E2))
                     {
@@ -193,7 +193,7 @@ namespace UnityNativeHull
             // 步骤4：确保分离轴方向从第一个物体指向第二个物体
             // 用第一个边的起点 P1 到物体1质心 C1 的向量与 N 做点乘判断方向
             // 若为负数，说明 N 朝向物体内部，应当翻转
-            if (math.dot(math.dot(P1, C1), N) < 0)
+            if (math.dot(N, P1 - C1) < 0)
             {
                 N = -N; 
             }
@@ -203,7 +203,7 @@ namespace UnityNativeHull
             // 表达式 math.dot(N, P2 - P1) 即为第二条边（P2）到第一条边（P1）在分离轴方向 N 上的距离。
             // 由于 N 已经被调整为从物体1指向物体2，所以：
             // 如果结果为正数 → 有间隙；如果为负数 → 发生重叠。
-            return math.dot(P2 - P1, N);
+            return math.dot(N, P2 - P1);
         }
     }
 }

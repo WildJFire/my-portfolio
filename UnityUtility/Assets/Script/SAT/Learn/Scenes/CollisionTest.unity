@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 552615064}
   - component: {fileID: 552615063}
   - component: {fileID: 552615062}
-  - component: {fileID: 552615065}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -806,7 +805,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16a27840c93e014469e411fb0e09a128, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -837,28 +836,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552615060}
-  m_Mesh: {fileID: 2086567094}
---- !u!64 &552615065
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552615060}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 2086567094}
 --- !u!1 &705507993
 GameObject:
@@ -1708,7 +1685,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16a27840c93e014469e411fb0e09a128, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2341,7 +2318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 895030710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716d3c6035d045f4fa67325b9cc788fd, type: 3}
+  m_Script: {fileID: 11500000, guid: fe5597794b86a8445bff420f6db6c851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Transforms:
@@ -2350,8 +2327,8 @@ MonoBehaviour:
   - {fileID: 2000962621}
   - {fileID: 843894471}
   HullDrawingOptions: 8
-  DrawIsCollided: 0
-  DrawIntersection: 0
+  DrawIsCollided: 1
+  DrawIntersection: 1
   LogContact: 0
 --- !u!4 &895030712
 Transform:
@@ -3018,7 +2995,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16a27840c93e014469e411fb0e09a128, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5372,7 +5349,7 @@ Transform:
   m_GameObject: {fileID: 2000962620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.325, y: 0, z: -3.759}
+  m_LocalPosition: {x: 3.344, y: 0, z: -3.759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7582,7 +7559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16a27840c93e014469e411fb0e09a128, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

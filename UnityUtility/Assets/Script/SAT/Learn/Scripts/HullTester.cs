@@ -5,8 +5,8 @@ using System;
 using System.Linq;
 using Unity.Mathematics;
 using Common;
-
-
+using System.Diagnostics;
+using Unity.Collections;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -46,7 +46,7 @@ public class HullTester : MonoBehaviour
         {
             for (int i = 0; i < transforms.Count; i++)
             {
-                var t = transforms[i];
+                Transform t = transforms[i];
                 if (!t)
                 {
                     continue;
@@ -66,9 +66,9 @@ public class HullTester : MonoBehaviour
             }
         }
 
-        Debug.Log("重建对象");
+        UnityEngine.Debug.Log("重建对象");
 
-        this.EnsureDestoryed();
+        this.EnsureDestroyed();
 
         _hulls = transforms.Where(t => t != null).ToDictionary(t => t.GetInstanceID(), CreateShape);
 
@@ -77,7 +77,7 @@ public class HullTester : MonoBehaviour
 
     private TestShape CreateShape(Transform t)
     {
-        var hull = CreateHull(t);
+        NativeHull hull = CreateHull(t);
         return new TestShape
         {
             Id = t.GetInstanceID(),
@@ -124,6 +124,10 @@ public class HullTester : MonoBehaviour
                 {
                     continue;
                 }
+
+                if (!tA.hasChanged && !tB.hasChanged)
+                    continue;
+
                 NativeHull hullB = _hulls[tB.GetInstanceID()].Hull;
                 var transformB = new RigidTransform(tB.rotation, tB.position);
                 DrawHullCollision(tA.gameObject, tB.gameObject, transformA, hullA, transformB, hullB);
@@ -137,29 +141,79 @@ public class HullTester : MonoBehaviour
         var collision = HullCollision.GetDebugCollisionInfo(transformA, hullA, transformB, hullB);
         if (collision.IsColliding)
         {
-            DebugDrawer.DrawSphere(transformA.pos, 0.1f, Color.red);
-            DebugDrawer.DrawSphere(transformB.pos, 0.1f, Color.red);
-        }
+
+            // 绘制相交区域
+            if (DrawIntersection)
+            {
+                HullIntersection.DrawNativeHullHullIntersection(transformA, hullA, transformB, hullB);
+            }
+
+            // 绘制接触信息
+            if (LogContact)
+            {
+                var sw1 = Stopwatch.StartNew();
+                var tmp = new NativeManifold(Allocator.Persistent);
+                var normalResult = HullIntersection.NativeHullHullContact(ref tmp, transformA, hullA, transformB, hullB);
+                sw1.Stop();
+                tmp.Dispose();
+
+                var sw2 = Stopwatch.StartNew();
+                var burstResult = HullOperations.TryGetContact.Invoke(out NativeManifold manifold, transformA, hullA, transformB, hullB);
+                sw2.Stop();
+
+                if (LogContact)
+                {
+                    UnityEngine.Debug.Log($"'{a.name}'与'{b.name}'的接触计算耗时: {sw1.Elapsed.TotalMilliseconds:N4}ms (普通), {sw2.Elapsed.TotalMilliseconds:N4}ms (Burst)");
+                }
+            }
+
+            if (DrawIsCollided)
+            {
+                DebugDrawer.DrawSphere(transformA.pos, 0.1f, Color.red);
+                DebugDrawer.DrawSphere(transformB.pos, 0.1f, Color.red);
+            }
+                    }
     }
 
-    private void OnDestroy() => this.EnsureDestoryed();
-    private void OnDisable() => this.EnsureDestoryed();
+    private void OnDestroy() => this.EnsureDestroyed();
+    private void OnDisable() => this.EnsureDestroyed();
 
-    private void EnsureDestoryed()
+    private void EnsureDestroyed()
     {
         if (this._hulls == null)
         {
             return;
         }
 
-        foreach (var hull in _hulls.Values)
+        foreach (TestShape hull in _hulls.Values)
         {
-            if (hull != null)
+            if (hull.Hull.IsValid)
             {
                 hull.Hull.Dispose();
             }
         }
         _hulls.Clear();
     }
+    void OnEnable()
+    {
+#if UNITY_EDITOR
+        EditorApplication.playModeStateChanged += EditorApplication_playModeStateChanged;
+#endif
+    }
+
+#if UNITY_EDITOR
+    // 编辑器播放模式状态变化回调
+    private void EditorApplication_playModeStateChanged(PlayModeStateChange state)
+    {
+        switch (state)
+        {
+            case PlayModeStateChange.ExitingEditMode:
+            case PlayModeStateChange.ExitingPlayMode:
+                EnsureDestroyed();
+                break;
+        }
+    }
+#endif
+
 }
 
