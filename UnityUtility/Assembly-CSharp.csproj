@@ -60,12 +60,19 @@
     <Analyzer Include="D:\Develop\unity\2022.3.62f2c1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Demo\Progress_Bar\ProgressBarTest.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\ScreenControllers\NavigationPanelController.cs" />
+    <Compile Include="Assets\Demo\AB_Test_Callback\Test_Callback.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\ScreenControllers\StartWindowController.cs" />
+    <Compile Include="Assets\Demo\AB_Test_Await_Async\Test_Await_Asycn.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\UIDemoController.cs" />
+    <Compile Include="Assets\Demo\AB_Test_Coroutine\Test_Coroutine.cs" />
     <Compile Include="Assets\Demo\TestUI.cs" />
-    <Compile Include="Assets\Demo\Test_Await_Async\Test_Await_Asycn.cs" />
-    <Compile Include="Assets\Demo\Hot_Update\GameRoot.cs" />
-    <Compile Include="Assets\Demo\Test_Callback\Test_Callback.cs" />
-    <Compile Include="Assets\Demo\Test_Coroutine\Test_Coroutine.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\Widgets\NavigationPanelButton.cs" />
+    <Compile Include="Assets\Demo\UI_Progress_Bar\ProgressBarTest.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\ScreenTransitions\ScaleScreenAni.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\ScreenIds.cs" />
+    <Compile Include="Assets\Demo\UI_Framework\ScreenTransitions\SlideScreenAni.cs" />
+    <Compile Include="Assets\Demo\AB_Hot_Update\GameRoot.cs" />
     <Compile Include="Assets\HybridCLRGenerate\AOTGenericReferences.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +442,10 @@
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\External\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="dnlib">
@@ -1163,6 +1174,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{57E7A494-FDAA-E096-6C0B-5F13E50E0436}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="HotUpdateTest.csproj">
       <Project>{7BF2BDED-8026-20F8-4AB4-798172A9F64E}</Project>
       <Name>HotUpdateTest</Name>

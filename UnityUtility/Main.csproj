@@ -61,54 +61,75 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CommonUtility\MonoSingleton.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\NativeFace.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\TestShape.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\NativeManifold.cs" />
-    <Compile Include="Assets\Script\POOL\ObjectPool\MonoObjectPool.cs" />
+    <Compile Include="Assets\Script\UIFramework\Panel\PanelController.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\Common\DebugDrawer.cs" />
+    <Compile Include="Assets\Script\UIFramework\Core\ScreenPropertyInterfaces.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\HotUpdate\HybirdCLRManager.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\NativeManifold.cs" />
+    <Compile Include="Assets\Script\UIFramework\UISettings.cs" />
+    <Compile Include="Assets\Script\POOL\ObjectPool\PoolItem.cs" />
     <Compile Include="Assets\Script\POOL\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Script\Event\EventId.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\BundleAsync.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\HullIntersection.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\Common\UnityColors.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\Common\NativeArrayNoLeakDetection.cs" />
+    <Compile Include="Assets\Script\UIFramework\Core\UIScreenController.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\NativeHull.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\AResource.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\Common\NativeArrayNoLeakDetection.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\Common\UnityColors.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\HullCollision.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowController.cs" />
+    <Compile Include="Assets\Script\UIFramework\UIFrame.cs" />
     <Compile Include="Assets\Script\UIComponent\ProgressBar.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowHistoryEntry.cs" />
     <Compile Include="Assets\Script\Event\EventManager.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\NativeHull.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\AResourceAsync.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\HotUpdate\ABDownloader.cs" />
     <Compile Include="Assets\Script\POOL\ObjectPool\IObjectPool.cs" />
+    <Compile Include="Assets\Script\UIFramework\ViewAnimation\AniComponent.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\ABundleAsync.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowParaLayer.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\ResourceAsync.cs" />
     <Compile Include="Assets\Script\CommonUtility\IOUtils.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\HullTester.cs" />
     <Compile Include="Assets\Script\Event\EVENT.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Awaiter\AwaiterInterfaces.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\HullCollision.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\HullTester.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\ABundle.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\HotUpdate\MD5Manager.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\NativeHalfEdge.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\HullFactory.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\Common\BurstAction.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\HullOperations.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\HullDrawingUtility.cs" />
+    <Compile Include="Assets\Script\UIFramework\Panel\PanelProperties.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\EditorResource.cs" />
     <Compile Include="Assets\Script\CommonUtility\Singleton.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\HullDrawingUtility.cs" />
     <Compile Include="Assets\Script\CommonUtility\Profiler.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowPriority.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\HullOperations.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\BundleManager.cs" />
+    <Compile Include="Assets\Script\UIFramework\Core\ScreenControllerInterfaces.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\Common\BurstAction.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\TestShape.cs" />
+    <Compile Include="Assets\Script\UIFramework\Panel\PanelPriority.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\Bundle.cs" />
-    <Compile Include="Assets\Script\POOL\ObjectPool\AObjectPool.cs" />
+    <Compile Include="Assets\Script\Event\Signals.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\HotUpdate\HotUpdateManager.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowProperties.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\ResourceManager.cs" />
+    <Compile Include="Assets\Script\UIFramework\ViewAnimation\FadeAni.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Bundle\ABVersionItem.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\Common\DebugDrawer.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\Common\NativeBuffer.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\NativePlane.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\HullIntersection.cs" />
+    <Compile Include="Assets\Script\UIFramework\Core\UILayer.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\IResourceManager.cs" />
+    <Compile Include="Assets\Script\UIFramework\ViewAnimation\AnimationView.cs" />
+    <Compile Include="Assets\Script\UIFramework\Window\WindowUILayer.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\Common\NativeBuffer.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\NativeHalfEdge.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\Resource.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Awaiter\ResourceAwaiter.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\NativeFace.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Tool\ABUtil.cs" />
-    <Compile Include="Assets\Script\SAT\Scripts\UnityNativeHull\NativePlane.cs" />
+    <Compile Include="Assets\Script\UIFramework\Panel\PanelUILayer.cs" />
+    <Compile Include="Assets\Script\SAT\Learn\Scripts\UnityNativeHull\HullFactory.cs" />
     <Compile Include="Assets\Script\AssetBundleFramework\Core\Resource\IResource.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -499,12 +520,20 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Plugins\External\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\log4netPlastic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\External\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="dnlib">

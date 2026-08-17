@@ -62,9 +62,11 @@ namespace UnityNativeHull
                 // 获取支撑点，注意这里是用的hull2调用的hull1面的法线，
                 // 也就是说目的是找到 hull2 在这个法线反方向上最远的点（即最靠近 hull1 面的点）。
                 // 可以进到这个GetSupport函数一看便知，不断地dot点乘这个内法线，值最大的就是距离最近的。返回值是点的坐标
+                //  这里是获取参数方向最远的点，-plane.Normal就是hull2中沿着hull1面法线的反方向的最远的点
                 float3 support = hull2.GetSupport(-plane.Normal);
-                //计算面到支撑点的距离，法线目前就当做是探索的分离轴，distance 就是这个轴上 hull2 的投影值
-                //support 点沿着分离轴的投影值 - hull1 当前面的投影值,也就是这两个投影区间的距离。
+                // 计算面到支撑点的距离，法线目前就当做是探索的分离轴，distance 就是这个轴上 hull2 的投影值
+                // support 点沿着分离轴的投影值 - hull1 当前面的投影值,也就是这两个投影区间的距离。
+                //  这里算的距离就是沿着plane.Normal方向的距离，要是小于0就说明在这个点在hull1面所在平面的内侧就碰撞了
                 float distance = plane.Distance(support);
 
                 // 当 distance > 0 时，表示：

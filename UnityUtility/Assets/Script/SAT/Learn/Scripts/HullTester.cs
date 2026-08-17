@@ -172,7 +172,7 @@ public class HullTester : MonoBehaviour
                 DebugDrawer.DrawSphere(transformA.pos, 0.1f, Color.red);
                 DebugDrawer.DrawSphere(transformB.pos, 0.1f, Color.red);
             }
-                    }
+        }
     }
 
     private void OnDestroy() => this.EnsureDestroyed();

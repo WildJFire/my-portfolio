@@ -60,11 +60,11 @@
     <Analyzer Include="D:\Develop\unity\2022.3.62f2c1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AssetBundle\HotUpdate\TestScript\HotUpdateTest.cs" />
-    <Compile Include="Assets\AssetBundle\HotUpdate\TestScript\HotUpdateUsageExample.cs" />
+    <Compile Include="Assets\Demo\AB_Hot_Update\HotUpdate\TestScript\HotUpdateUsageExample.cs" />
+    <Compile Include="Assets\Demo\AB_Hot_Update\HotUpdate\TestScript\HotUpdateTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AssetBundle\HotUpdate\TestScript\HotUpdateTest.asmdef" />
+    <None Include="Assets\Demo\AB_Hot_Update\HotUpdate\TestScript\HotUpdateTest.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -451,12 +451,20 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Plugins\External\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\log4netPlastic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\External\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="dnlib">
